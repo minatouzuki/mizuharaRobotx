@@ -98,7 +98,7 @@ def reverse(update: Update, context:CallbackContext):
             xx = bot.send_message(chat_id, "Google told me to go away.", reply_to_message_id=rtmid)
             return
            
-os.remove(imagename)
+        os.remove(imagename)
         match = ParseSauce(fetchUrl + "&hl=en")
         guess = match['best_guess']
         if match['override'] and not match['override'] == '':

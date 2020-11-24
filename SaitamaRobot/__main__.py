@@ -52,7 +52,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am chizuru mizuhara(rent a girlfriend) a group manager bot.Rent me for your group if you want😃😃.
+I am chizuru mizuhara (rent a girlfriend) a group manager bot.Rent me for your group if you want😃😃.
 You can find my list of available commands with /help.
 """
 

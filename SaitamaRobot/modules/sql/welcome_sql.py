@@ -23,7 +23,7 @@ DEFAULT_WELCOME_MESSAGES = [
     "Welcome, {first}. Stay awhile and listen.",
     "Welcome, {first}. We were expecting you ( ͡° ͜ʖ ͡°)",
     "Welcome, {first}. We hope you brought pizza.",
-    "Welcome, {first}. Leave your weapons by the door.",
+    "Welcome, {first}. Show your rent id.",
     "Swoooosh. {first} just landed.",
     "Brace yourselves. {first} just joined the chat.",
     "{first} just joined. Hide your bananas.",

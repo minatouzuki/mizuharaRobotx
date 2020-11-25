@@ -1,4 +1,4 @@
- import html
+import html
 
 from typing import List
 

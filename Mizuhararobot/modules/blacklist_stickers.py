@@ -34,9 +34,8 @@ def blackliststicker(update: Update, context: CallbackContext):
     else:
         if chat.type == "private":
             return
-        else:
-            chat_id = update.effective_chat.id
-            chat_name = chat.title
+        chat_id = update.effective_chat.id
+        chat_name = chat.title
 
     sticker_list = "<b>List blacklisted stickers currently in {}:</b>\n".format(
         chat_name)
@@ -85,10 +84,8 @@ def add_blackliststicker(update: Update, context: CallbackContext):
 
     if len(words) > 1:
         text = words[1].replace('https://t.me/addstickers/', '')
-        to_blacklist = list(
-            set(trigger.strip()
-                for trigger in text.split("\n")
-                if trigger.strip()))
+        to_blacklist = list({trigger.strip() for trigger in text.split("\n")
+                        if trigger.strip()})
         added = 0
         for trigger in to_blacklist:
             try:
@@ -143,8 +140,6 @@ def add_blackliststicker(update: Update, context: CallbackContext):
     else:
         send_message(update.effective_message,
                      "Tell me what stickers you want to add to the blacklist.")
-
-
 @run_async
 @user_admin
 def unblackliststicker(update: Update, context: CallbackContext):
@@ -167,10 +162,8 @@ def unblackliststicker(update: Update, context: CallbackContext):
 
     if len(words) > 1:
         text = words[1].replace('https://t.me/addstickers/', '')
-        to_unblacklist = list(
-            set(trigger.strip()
-                for trigger in text.split("\n")
-                if trigger.strip()))
+        to_unblacklist = list({trigger.strip() for trigger in text.split("\n")
+                        if trigger.strip()})
         successful = 0
         for trigger in to_unblacklist:
             success = sql.rm_from_stickers(chat_id, trigger.lower())
@@ -256,11 +249,10 @@ def blacklist_mode(update: Update, context: CallbackContext):
         chat_name = update.effective_message.chat.title
 
     if args:
-        if args[0].lower() == 'off' or args[0].lower(
-        ) == 'nothing' or args[0].lower() == 'no':
+        if args[0].lower() in ['off', 'nothing', 'no']:
             settypeblacklist = 'turn off'
             sql.set_blacklist_strength(chat_id, 0, "0")
-        elif args[0].lower() == 'del' or args[0].lower() == 'delete':
+        elif args[0].lower() in ['del', 'delete']:
             settypeblacklist = 'left, the message will be deleted'
             sql.set_blacklist_strength(chat_id, 1, "0")
         elif args[0].lower() == 'warn':
@@ -367,8 +359,7 @@ def del_blackliststicker(update: Update, context: CallbackContext):
                         "Using sticker '{}' which in blacklist stickers".format(
                             trigger),
                         message,
-                        update.effective_user,
-                        conn=False)
+                        update.effective_user)
                     return
                 elif getmode == 3:
                     message.delete()
@@ -436,10 +427,8 @@ def del_blackliststicker(update: Update, context: CallbackContext):
                         parse_mode="markdown")
                     return
             except BadRequest as excp:
-                if excp.message == "Message to delete not found":
-                    pass
-                else:
-                    LOGGER.exception("Error while deleting blacklist message.")
+                if excp.message != 'Message to delete not found':
+                    LOGGER.exception('Error while deleting blacklist message.')
                 break
 
 

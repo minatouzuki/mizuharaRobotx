@@ -1,4 +1,5 @@
 import html
+import re
 from typing import Optional, List
 
 from telegram import Message, Chat, Update, User, ChatPermissions
@@ -92,13 +93,13 @@ def check_flood(update, context) -> str:
 @user_admin_no_reply
 @bot_admin
 def flood_button(update: Update, context: CallbackContext):
-    bot = context.bot
     query = update.callback_query
-    user = update.effective_user
     match = re.match(r"unmute_flooder\((.+?)\)", query.data)
     if match:
         user_id = match.group(1)
         chat = update.effective_chat.id
+        bot = context.bot
+        user = update.effective_user
         try:
             bot.restrict_chat_member(
                 chat,
@@ -138,13 +139,13 @@ def set_flood(update, context) -> str:
 
     if len(args) >= 1:
         val = args[0].lower()
-        if val == "off" or val == "no" or val == "0":
+        if val in ["off", "no", "0"]:
             sql.set_flood(chat_id, 0)
             if conn:
-                text = message.reply_text(
+                message.reply_text(
                     "Antiflood has been disabled in {}.".format(chat_name))
             else:
-                text = message.reply_text("Antiflood has been disabled.")
+                message.reply_text("Antiflood has been disabled.")
 
         elif val.isdigit():
             amount = int(val)

@@ -44,7 +44,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "You don't seem to be referring to a user or the ID specified is incorrect check it and then try.."
         )
         return
 
@@ -60,7 +60,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if user_id == bot.id:
         message.reply_text(
-            "I can't promote myself! Get an admin to do it for me.")
+            "How can I promote myself! Get an admin to do it for me.")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -133,12 +133,12 @@ def demote(update: Update, context: CallbackContext) -> str:
         return
 
     if not user_member.status == 'administrator':
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("This user is not an admin how can i demote!")
         return
 
     if user_id == bot.id:
         message.reply_text(
-            "I can't demote myself! Get an admin to do it for me.")
+            "How can I demote myself! Get an admin to do it for me.")
         return
 
     try:
@@ -239,7 +239,7 @@ def set_title(update: Update, context: CallbackContext):
         bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
     except BadRequest:
         message.reply_text(
-            "I can't set custom title for admins that I didn't promote!")
+            "I can't set custom title for admins that were not promoted by me!")
         return
 
     bot.sendMessage(

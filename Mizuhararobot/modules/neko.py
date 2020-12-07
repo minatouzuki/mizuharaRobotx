@@ -1,4 +1,4 @@
-Module by @dankasfuck ported for mizuhara by minatouzuki
+Module by @dankasfuck ported for mizuhararobot by minatouzuki
 import requests
 import nekos
 from PIL import Image

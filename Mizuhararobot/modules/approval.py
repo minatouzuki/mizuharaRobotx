@@ -7,14 +7,14 @@ from telegram import ParseMode , Bot, Update
 from telegram.ext import (run_async,
                           Filters, CommandHandler)
 
-from mizuhararobot import dispatcher, REDIS
-from mizuhararobot.modules.disable import DisableAbleCommandHandler
-from mizuhararobot.modules.helper_funcs.chat_status import (
+from Mizuhararobot import dispatcher, REDIS
+from Mizuhararobot.modules.disable import DisableAbleCommandHandler
+from Mizuhararobot.modules.helper_funcs.chat_status import (
     bot_admin,
     user_admin
 )
-from mizuhararobot.modules.helper_funcs.extraction import extract_user_and_text
-from mizuhararobot.modules.helper_funcs.alternate import typing_action
+from Mizuhararobot.modules.helper_funcs.extraction import extract_user_and_text
+from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 

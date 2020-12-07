@@ -1,4 +1,4 @@
-Module by @dankasfuck ported for mizuhararobot by minatouzuki
+Module by @dankasfuck ported for saber by hyper
 import requests
 import nekos
 from PIL import Image

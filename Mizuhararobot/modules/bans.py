@@ -373,6 +373,7 @@ def selfunban(context: CallbackContext, update: Update) -> str:
 
     return log
 
+
 @run_async
 @bot_admin
 @can_restrict

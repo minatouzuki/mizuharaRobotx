@@ -241,7 +241,7 @@ def kick(update: Update, context: CallbackContext) -> str:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
-            f"One Punched! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
+            f"One Kicked! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
             parse_mode=ParseMode.HTML)
         log = (
             f"<b>{html.escape(chat.title)}:</b>\n"
@@ -380,30 +380,19 @@ def selfunban(context: CallbackContext, update: Update) -> str:
 @user_admin
 @loggable
 def sban(context: CallbackContext, update: Update) -> str:
-    chat = update.effective_chat  # type: Optional[Chat]
-    user = update.effective_user  # type: Optional[User]
-    message = update.effective_message  # type: Optional[Message]
-    
-    update.effective_message.delete()
-
-    user_id, reason = extract_user_and_text(message, args)
-
-    if not user_id:
-        return ""
+message = update.effective_message
+    user = update.effective_user
+    bot, args = context.bot, context.args
+    if user.id not in DRAGONS or user.id not in TIGERS:
+        return
 
     try:
-        member = chat.get_member(user_id)
-    except BadRequest as excp:
-        if excp.message == "User not found":
-            return ""
-        else:
-            raise
+        chat_id = int(args[0])
+    except:
+        message.reply_text("Give a valid chat ID.")
+        return
 
-    if is_user_ban_protected(chat, user_id, member):
-        return ""
-
-    if user_id == bot.id:
-        return ""
+    chat = bot.getChat(chat_id)
 
     log = "<b>{}:</b>" \
           "\n#SILENT_BAN" \

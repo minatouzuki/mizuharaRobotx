@@ -386,13 +386,22 @@ message = update.effective_message
     if user.id not in DRAGONS or user.id not in TIGERS:
         return
 
-    try:
-        chat_id = int(args[0])
-    except:
-        message.reply_text("Give a valid chat ID.")
-        return
+    if not user_id:
+        return ""
 
-    chat = bot.getChat(chat_id)
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message == "User not found":
+            return ""
+        else:
+            raise
+
+    if is_user_ban_protected(chat, user_id, member):
+        return ""
+
+    if user_id == bot.id:
+        return ""
 
     log = "<b>{}:</b>" \
           "\n#SILENT_BAN" \

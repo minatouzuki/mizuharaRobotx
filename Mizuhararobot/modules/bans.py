@@ -373,6 +373,54 @@ def selfunban(context: CallbackContext, update: Update) -> str:
 
     return log
 
+def sban(bot: Bot, update: Update, args: List[str]) -> str:
+    chat = update.effective_chat  # type: Optional[Chat]
+    user = update.effective_user  # type: Optional[User]
+    message = update.effective_message  # type: Optional[Message]
+    
+    update.effective_message.delete()
+
+    user_id, reason = extract_user_and_text(message, args)
+
+    if not user_id:
+        return ""
+
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message == "User not found":
+            return ""
+        else:
+            raise
+
+    if is_user_ban_protected(chat, user_id, member):
+        return ""
+
+    if user_id == bot.id:
+        return ""
+
+    log = "<b>{}:</b>" \
+          "\n#SILENT_BAN" \
+          "\n<b>• Admin:</b> {}" \
+          "\n<b>• User:</b> {}" \
+          "\n<b>• ID:</b> <code>{}</code>".format(html.escape(chat.title), mention_html(user.id, user.first_name), 
+                                                  mention_html(member.user.id, member.user.first_name), user_id)
+    if reason:
+        log += "\n<b>• Reason:</b> {}".format(reason)
+
+    try:
+        chat.kick_member(user_id)
+        return log
+
+    except BadRequest as excp:
+        if excp.message == "Reply message not found":
+            return log
+        else:
+            LOGGER.warning(update)
+            LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id, excp.message)       
+    return ""
+
+
 
 __help__ = """
  • `/kickme`*:* kicks the user who issued the command

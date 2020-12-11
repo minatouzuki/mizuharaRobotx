@@ -21,7 +21,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebK
 opener.addheaders = [('User-agent', useragent)]
 
 @run_async
-def reverse(update: Update, context:CallbackContext):
+def lens(update: Update, context:CallbackContext):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
 
@@ -182,14 +182,14 @@ def scam(imgspage, lim):
 
 __help__ = f"""
 *Commands:* 
-• /reverse: Does a *reverse image search* of the media which it was replied to.
+• /lens: Does a *reverse image search* of the media which it was replied to.
 Reports bugs at @chizurusupport
 """
 
 __mod_name__ = "Image Search"
 
-REVERSE_HANDLER = DisableAbleCommandHandler(
-    "reverse", reverse, pass_args=True, admin_ok=True
+LENS_HANDLER = DisableAbleCommandHandler(
+    "lens", lens, pass_args=True, admin_ok=True
 )
 
-dispatcher.add_handler(REVERSE_HANDLER)
+dispatcher.add_handler(LENS_HANDLER)

@@ -166,7 +166,7 @@ else:
 updater = tg.Updater(
     TOKEN,
     workers=WORKERS,
-    base_url='https://bot.mannu.me/bot',
+    # base_url='https://bot.mannu.me/bot',
     use_context=True
 )
 telethn = TelegramClient("saitama", API_ID, API_HASH)

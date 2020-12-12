@@ -1,6 +1,5 @@
 RUN_STRINGS = (
-    "Now you see me, now you don't."
-    "ε=ε=ε=ε=┌(;￣▽￣)┘",
+    "Now you see me, now you don't." "ε=ε=ε=ε=┌(;￣▽￣)┘",
     "Get back here!",
     "REEEEEEEEEEEEEEEEEE!!!!!!!",
     "Look out for the wall!",
@@ -21,9 +20,9 @@ RUN_STRINGS = (
 )
 
 GIFS = [
-    'CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE',
-    'CgACAgUAAx0CU_rCTAABAjdgX1s4NVaeCls6YaH3p43vgdCRwQIAAqsAA4P_MFUYQhyoR-kgpRsE',
-    'CgACAgUAAx0CU_rCTAABAjdSX1s3fq5iEJ64YeQLKI8cD7CSuSEAAlUBAAJu09hW5iqWB0hTPD4bBA'
+    "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE",
+    "CgACAgUAAx0CU_rCTAABAjdgX1s4NVaeCls6YaH3p43vgdCRwQIAAqsAA4P_MFUYQhyoR-kgpRsE",
+    "CgACAgUAAx0CU_rCTAABAjdSX1s3fq5iEJ64YeQLKI8cD7CSuSEAAlUBAAJu09hW5iqWB0hTPD4bBA",
 ]
 
 SLAP_SAITAMA_TEMPLATES = (
@@ -34,8 +33,9 @@ SLAP_SAITAMA_TEMPLATES = (
         "Stop slapping me just because I can't mute you. REEEEEEEEEE.",  # reply to admin
         "tmute",  # command
         "Shut up!",
-        "Silence!"
-    ])
+        "Silence!",
+    ],
+)
 
 SLAP_TEMPLATES = (
     "{user2} was killed by magic.",
@@ -136,12 +136,12 @@ SLAP_TEMPLATES = (
     "You know what’s worse than Dad jokes? {user2}!",
     "{user1} took all of {user2}'s cookies.",
     "{user2} wa mou.......Shindeiru! - {user1}.",
-    "{user2} lost his race piece!",  #No game no life reference
-    "Shut up {user2}, you are just {user2}.",  #No game no life reference
-    "{user1} hits {user2} with Aka si anse!",  #No game no life reference
-    "@NeoTheKitty scratches {user2}",  #Pixels pet cat - @NeoTheKitty 
-    "Majin buu ate {user2}",  #Dbz
-    "Goblin slayer slays {user2}",  #Goblin Slayer
+    "{user2} lost his race piece!",  # No game no life reference
+    "Shut up {user2}, you are just {user2}.",  # No game no life reference
+    "{user1} hits {user2} with Aka si anse!",  # No game no life reference
+    "@NeoTheKitty scratches {user2}",  # Pixels pet cat - @NeoTheKitty
+    "Majin buu ate {user2}",  # Dbz
+    "Goblin slayer slays {user2}",  # Goblin Slayer
 )
 
 PAT_TEMPLATES = (
@@ -184,11 +184,13 @@ PAT_TEMPLATES = (
 
 PAT_GIFS = (
     "CgACAgQAAxkBAALRX19Xs7tBdOH1gQwS_rglVRkTbgVYAAKEAgACmQn9UWlyGa_xy9_aGwQ",
-    "CgACAgEAAxkBAALRYF9Xs8EnhsDfDpld3ILoqTbzDmwxAAJFAAOJxjlHECanwn69E5QbBA")
+    "CgACAgEAAxkBAALRYF9Xs8EnhsDfDpld3ILoqTbzDmwxAAJFAAOJxjlHECanwn69E5QbBA",
+)
 
 PAT_STICKERS = (
     "CAACAgQAAxkBAALRWV9Xs4HH0XaXfhZe-jWaZoXfs-IsAAJYAwACdDgSEHYOt4KvL02oGwQ",
-    "CAACAgQAAxkBAALRXF9Xs6XmIeDbnoL1wiDky0TdX-CvAAKKAQAC1TMzC9A3CtiT2rqVGwQ")
+    "CAACAgQAAxkBAALRXF9Xs6XmIeDbnoL1wiDky0TdX-CvAAKKAQAC1TMzC9A3CtiT2rqVGwQ",
+)
 
 PING_STRING = (
     "PONG!!",
@@ -237,58 +239,176 @@ HIT = (
     "pats",
 )
 
-EYES = [['⌐■', '■'], [' ͠°', ' °'], ['⇀', '↼'], ['´• ', ' •`'], ['´', '`'],
-        ['`', '´'], ['ó', 'ò'], ['ò', 'ó'], ['⸌', '⸍'], ['>',
-                                                         '<'], ['Ƹ̵̡', 'Ʒ'],
-        ['ᗒ', 'ᗕ'], ['⟃', '⟄'], ['⪧', '⪦'], ['⪦', '⪧'], ['⪩', '⪨'], ['⪨', '⪩'],
-        ['⪰', '⪯'], ['⫑', '⫒'], ['⨴', '⨵'], ['⩿', '⪀'], ['⩾', '⩽'], ['⩺', '⩹'],
-        ['⩹', '⩺'], ['◥▶', '◀◤'], ['◍', '◎'], ['/͠-', '┐͡-\\'], ['⌣', '⌣”'],
-        [' ͡⎚', ' ͡⎚'], ['≋'], ['૦ઁ'], ['  ͯ'], ['  ͌'], ['ළ'], ['◉'], ['☉'],
-        ['・'], ['▰'], ['ᵔ'], [' ﾟ'], ['□'], ['☼'], ['*'], ['`'], ['⚆'], ['⊜'],
-        ['>'], ['❍'], ['￣'], ['─'], ['✿'], ['•'], ['T'], ['^'], ['ⱺ'], ['@'],
-        ['ȍ'], ['  '], ['  '], ['x'], ['-'], ['$'], ['Ȍ'], ['ʘ'], ['Ꝋ'],
-        [''], ['⸟'], ['๏'], ['ⴲ'], ['◕'], ['◔'], ['✧'], ['■'], ['♥'], [' ͡°'],
-        ['¬'], [' º '], ['⨶'], ['⨱'], ['⏓'], ['⏒'], ['⍜'], ['⍤'], ['ᚖ'], ['ᴗ'],
-        ['ಠ'], ['σ'], ['☯']]
+EYES = [
+    ["⌐■", "■"],
+    [" ͠°", " °"],
+    ["⇀", "↼"],
+    ["´• ", " •`"],
+    ["´", "`"],
+    ["`", "´"],
+    ["ó", "ò"],
+    ["ò", "ó"],
+    ["⸌", "⸍"],
+    [">", "<"],
+    ["Ƹ̵̡", "Ʒ"],
+    ["ᗒ", "ᗕ"],
+    ["⟃", "⟄"],
+    ["⪧", "⪦"],
+    ["⪦", "⪧"],
+    ["⪩", "⪨"],
+    ["⪨", "⪩"],
+    ["⪰", "⪯"],
+    ["⫑", "⫒"],
+    ["⨴", "⨵"],
+    ["⩿", "⪀"],
+    ["⩾", "⩽"],
+    ["⩺", "⩹"],
+    ["⩹", "⩺"],
+    ["◥▶", "◀◤"],
+    ["◍", "◎"],
+    ["/͠-", "┐͡-\\"],
+    ["⌣", "⌣”"],
+    [" ͡⎚", " ͡⎚"],
+    ["≋"],
+    ["૦ઁ"],
+    ["  ͯ"],
+    ["  ͌"],
+    ["ළ"],
+    ["◉"],
+    ["☉"],
+    ["・"],
+    ["▰"],
+    ["ᵔ"],
+    [" ﾟ"],
+    ["□"],
+    ["☼"],
+    ["*"],
+    ["`"],
+    ["⚆"],
+    ["⊜"],
+    [">"],
+    ["❍"],
+    ["￣"],
+    ["─"],
+    ["✿"],
+    ["•"],
+    ["T"],
+    ["^"],
+    ["ⱺ"],
+    ["@"],
+    ["ȍ"],
+    ["  "],
+    ["  "],
+    ["x"],
+    ["-"],
+    ["$"],
+    ["Ȍ"],
+    ["ʘ"],
+    ["Ꝋ"],
+    [""],
+    ["⸟"],
+    ["๏"],
+    ["ⴲ"],
+    ["◕"],
+    ["◔"],
+    ["✧"],
+    ["■"],
+    ["♥"],
+    [" ͡°"],
+    ["¬"],
+    [" º "],
+    ["⨶"],
+    ["⨱"],
+    ["⏓"],
+    ["⏒"],
+    ["⍜"],
+    ["⍤"],
+    ["ᚖ"],
+    ["ᴗ"],
+    ["ಠ"],
+    ["σ"],
+    ["☯"],
+]
 
-MOUTHS = [['v'], ['ᴥ'], ['ᗝ'], ['Ѡ'], ['ᗜ'], ['Ꮂ'], ['ᨓ'], ['ᨎ'],
-          ['ヮ'], ['╭͜ʖ╮'], [' ͟ل͜'], [' ͜ʖ'], [' ͟ʖ'], [' ʖ̯'], ['ω'], [' ³'],
-          [' ε '], ['﹏'], ['□'], ['ل͜'], ['‿'], ['╭╮'], ['‿‿'], ['▾'], ['‸'],
-          ['Д'], ['∀'], ['!'], ['人'], ['.'], ['ロ'], ['_'], ['෴'], ['ѽ'], ['ഌ'],
-          ['⏠'], ['⏏'], ['⍊'], ['⍘'], ['ツ'], ['益'], ['╭∩╮'], ['Ĺ̯'], ['◡'],
-          [' ͜つ']]
+MOUTHS = [
+    ["v"],
+    ["ᴥ"],
+    ["ᗝ"],
+    ["Ѡ"],
+    ["ᗜ"],
+    ["Ꮂ"],
+    ["ᨓ"],
+    ["ᨎ"],
+    ["ヮ"],
+    ["╭͜ʖ╮"],
+    [" ͟ل͜"],
+    [" ͜ʖ"],
+    [" ͟ʖ"],
+    [" ʖ̯"],
+    ["ω"],
+    [" ³"],
+    [" ε "],
+    ["﹏"],
+    ["□"],
+    ["ل͜"],
+    ["‿"],
+    ["╭╮"],
+    ["‿‿"],
+    ["▾"],
+    ["‸"],
+    ["Д"],
+    ["∀"],
+    ["!"],
+    ["人"],
+    ["."],
+    ["ロ"],
+    ["_"],
+    ["෴"],
+    ["ѽ"],
+    ["ഌ"],
+    ["⏠"],
+    ["⏏"],
+    ["⍊"],
+    ["⍘"],
+    ["ツ"],
+    ["益"],
+    ["╭∩╮"],
+    ["Ĺ̯"],
+    ["◡"],
+    [" ͜つ"],
+]
 
 EARS = [
-    ['q', 'p'],
-    ['ʢ', 'ʡ'],
-    ['⸮', '?'],
-    ['ʕ', 'ʔ'],
-    ['ᖗ', 'ᖘ'],
-    ['ᕦ', 'ᕥ'],
-    ['ᕦ(', ')ᕥ'],
-    ['ᕙ(', ')ᕗ'],
-    ['ᘳ', 'ᘰ'],
-    ['ᕮ', 'ᕭ'],
-    ['ᕳ', 'ᕲ'],
-    ['(', ')'],
-    ['[', ']'],
-    ['¯\\_', '_/¯'],
-    ['୧', '୨'],
-    ['୨', '୧'],
-    ['⤜(', ')⤏'],
-    ['☞', '☞'],
-    ['ᑫ', 'ᑷ'],
-    ['ᑴ', 'ᑷ'],
-    ['ヽ(', ')ﾉ'],
-    ['\\(', ')/'],
-    ['乁(', ')ㄏ'],
-    ['└[', ']┘'],
-    ['(づ', ')づ'],
-    ['(ง', ')ง'],
-    ['⎝', '⎠'],
-    ['ლ(', 'ლ)'],
-    ['ᕕ(', ')ᕗ'],
-    ['(∩', ')⊃━☆ﾟ.*'],
+    ["q", "p"],
+    ["ʢ", "ʡ"],
+    ["⸮", "?"],
+    ["ʕ", "ʔ"],
+    ["ᖗ", "ᖘ"],
+    ["ᕦ", "ᕥ"],
+    ["ᕦ(", ")ᕥ"],
+    ["ᕙ(", ")ᕗ"],
+    ["ᘳ", "ᘰ"],
+    ["ᕮ", "ᕭ"],
+    ["ᕳ", "ᕲ"],
+    ["(", ")"],
+    ["[", "]"],
+    ["¯\\_", "_/¯"],
+    ["୧", "୨"],
+    ["୨", "୧"],
+    ["⤜(", ")⤏"],
+    ["☞", "☞"],
+    ["ᑫ", "ᑷ"],
+    ["ᑴ", "ᑷ"],
+    ["ヽ(", ")ﾉ"],
+    ["\\(", ")/"],
+    ["乁(", ")ㄏ"],
+    ["└[", "]┘"],
+    ["(づ", ")づ"],
+    ["(ง", ")ง"],
+    ["⎝", "⎠"],
+    ["ლ(", "ლ)"],
+    ["ᕕ(", ")ᕗ"],
+    ["(∩", ")⊃━☆ﾟ.*"],
 ]
 
 TOSS = (
@@ -298,5 +418,8 @@ TOSS = (
 
 DECIDE = ("Yes.", "No.", "Maybe.")
 
-TABLE = ("(╯°□°）╯彡 ┻━┻", "I ran out of tables, will order more.",
-         "Go do some work instead of flippin tables.")
+TABLE = (
+    "(╯°□°）╯彡 ┻━┻",
+    "I ran out of tables, will order more.",
+    "Go do some work instead of flippin tables.",
+)

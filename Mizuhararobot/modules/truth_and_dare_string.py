@@ -1,6 +1,5 @@
 TRUTH = (
-    "Have you ghosted someone?"
-    "Have you ever walked in on your parents doing 'it'?",
+    "Have you ghosted someone?" "Have you ever walked in on your parents doing 'it'?",
     "Who was the last person you liked the most? Why?",
     "Have you ever been suspended from school?",
     "If you had to choose between going naked or having your thoughts appear in thought bubbles above your head for everyone to read, which would you choose?",
@@ -14,11 +13,10 @@ TRUTH = (
     "What’s the scariest thing you’ve ever done?",
     "Have you ever picked your nose and eaten it?",
     "When’s the last time you lied to your parents and why?",
-    "Did you ever tried to book a girlfriend online?", 
-    "After watching rent a girlfriend did u also got interest im gf booking online?", 
+    "Did you ever tried to book a girlfriend online?",
+    "After watching rent a girlfriend did u also got interest im gf booking online?",
     "Have you ever lied about your age to participate in a contest?",
     "Have you ever been caught checking someone out?",
-  
 )
 
 DARE = (
@@ -70,7 +68,7 @@ DARE = (
     "Confess to your current crush. ❤️",
     "Declare who is your true love.",
     "Send a screenshot of your gallery.",
-    "Did you love your neighbour daughter.", 
+    "Did you love your neighbour daughter.",
     "Set your crush’s picture as your dp.",
     "Suggest me more dares.",
 )

@@ -55,10 +55,7 @@ def get_readable_time(seconds: int) -> str:
 
     while count < 4:
         count += 1
-        if count < 3:
-            remainder, result = divmod(seconds, 60)
-        else:
-            remainder, result = divmod(seconds, 24)
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
@@ -102,7 +99,7 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/2a0f844ae486a5f419ea1.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/0f6a2472ca83a579bcff3.mp4"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Mizuhara is forked from saitama, so there is no need for donation but \You can donate to the original writer of the Base code, Paul
@@ -123,7 +120,7 @@ for module_name in ALL_MODULES:
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
-    if not imported_module.__mod_name__.lower() in IMPORTED:
+    if imported_module.__mod_name__.lower() not in IMPORTED:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
         raise Exception("Can't have two modules with the same name! Please change one")
@@ -177,9 +174,9 @@ def test(update: Update, context: CallbackContext):
 
 @run_async
 def start(update: Update, context: CallbackContext):
-    args = context.args
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
+        args = context.args
         if len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, HELP_STRINGS)
@@ -212,7 +209,7 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_photo(
+            update.effective_message.reply_animation(
                 SAITAMA_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name), escape_markdown(context.bot.first_name)
@@ -535,14 +532,12 @@ def settings_button(update: Update, context: CallbackContext):
         bot.answer_callback_query(query.id)
         query.message.delete()
     except BadRequest as excp:
-        if excp.message == "Message is not modified":
-            pass
-        elif excp.message == "Query_id_invalid":
-            pass
-        elif excp.message == "Message can't be deleted":
-            pass
-        else:
-            LOGGER.exception("Exception in settings buttons. %s", str(query.data))
+        if excp.message not in [
+            'Message is not modified',
+            'Query_id_invalid',
+            "Message can't be deleted",
+        ]:
+            LOGGER.exception('Exception in settings buttons. %s', str(query.data))
 
 
 @run_async
@@ -581,7 +576,6 @@ def get_settings(update: Update, context: CallbackContext):
 def donate(update: Update, context: CallbackContext):
     user = update.effective_message.from_user
     chat = update.effective_chat  # type: Optional[Chat]
-    bot = context.bot
     if chat.type == "private":
         update.effective_message.reply_text(
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
@@ -595,6 +589,7 @@ def donate(update: Update, context: CallbackContext):
             )
 
     else:
+        bot = context.bot
         try:
             bot.send_message(
                 user.id,

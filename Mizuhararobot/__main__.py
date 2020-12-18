@@ -77,7 +77,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am chizuru mizuhara(rent a girlfriend) a group manager bot.Rent me for your group if you want😃😃.
+I am chizuru ichinose a group manager bot.Rent me for your group if you want😃😃.
 You can find my list of available commands with /help.
 """
 
@@ -102,7 +102,7 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/2a0f844ae486a5f419ea1.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/0f6a2472ca83a579bcff3.mp4"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Mizuhara is forked from saitama, so there is no need for donation but \You can donate to the original writer of the Base code, Paul
@@ -243,7 +243,11 @@ def start(update: Update, context: CallbackContext):
                             InlineKeyboardButton(
                                 text="🧾 Getting started guide",
                                 url="https://t.me/chizuruupdates/18",
-                            )
+                            ), 
+                            InlineKeyboardButton(
+                            text="? help",
+                            url="https://t.me/Chizurumanagementbot?start=help", 
+                            ), 
                         ],
                         [
                             InlineKeyboardButton(

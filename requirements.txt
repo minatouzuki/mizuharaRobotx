@@ -1,5 +1,6 @@
 future
 emoji
+redis
 lxml
 beautifulsoup4
 requests
@@ -29,3 +30,4 @@ spamwatch
 alphabet_detector
 pyrate-limiter
 cachetools
+

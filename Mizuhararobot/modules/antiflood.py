@@ -78,7 +78,7 @@ def check_flood(update, context) -> str:
             tag = "TMUTE"
         send_message(update.effective_message,
                      "Beep Boop! Boop Beep!\n{}!".format(execstrings)
-
+            )
         return (
             "<b>{}:</b>"
             "\n#{}"

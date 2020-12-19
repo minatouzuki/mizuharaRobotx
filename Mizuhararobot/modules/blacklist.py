@@ -7,7 +7,7 @@ from telegram.ext import CommandHandler, MessageHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
 import Mizuhararobot.modules.sql.blacklist_sql as sql
-from Mizuhararobot import dispatcher, LOGGER
+from Mizuhararobot import dispatcher, LOGGER, REDIS
 from Mizuhararobot.modules.disable import DisableAbleCommandHandler
 from Mizuhararobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
 from Mizuhararobot.modules.helper_funcs.extraction import extract_text
@@ -342,6 +342,13 @@ def del_blacklist(update, context):
     to_match = extract_text(message)
     if not to_match:
         return
+
+    chat_id = str(chat.id)[1:] 
+    approve_list = list(REDIS.sunion(f'approve_list_{chat_id}'))
+    target_user = mention_html(user.id, user.first_name)
+    if target_user in approve_list:
+        return
+
 
     getmode, value = sql.get_blacklist_setting(chat.id)
 

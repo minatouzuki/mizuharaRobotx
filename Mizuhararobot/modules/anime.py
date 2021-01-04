@@ -6,8 +6,8 @@ import bs4
 import jikanpy
 import requests
 from telegram.utils.helpers import mention_html
-from Shoko import OWNER_ID, SUDO_USERS, REDIS, dispatcher
-from Shoko.modules.disable import DisableAbleCommandHandler
+from Mizuhararobot import DEV_USERS, OWNER_ID, DRAGONS, REDIS, dispatcher
+from Mizuhararobot.modules.disable import DisableAbleCommandHandler
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
@@ -642,7 +642,7 @@ def button(update, context):
     query_type = data[0]
     original_user_id = int(data[1])
 
-    user_and_admin_list = [original_user_id, OWNER_ID] + SUDO_USERS 
+    user_and_admin_list = [original_user_id, OWNER_ID] + DRAGONS
 
     bot.answer_callback_query(query.id)
     if query_type == "anime_close":
@@ -670,22 +670,95 @@ def button(update, context):
             query.answer("You are not allowed to use this.")
 
 
+def site_search(update: Update, context: CallbackContext, site: str):
+    message = update.effective_message
+    args = message.text.strip().split(" ", 1)
+    more_results = True
+
+    try:
+        search_query = args[1]
+    except IndexError:
+        message.reply_text("Give something to search")
+        return
+
+    if site == "kaizoku":
+        search_url = f"https://animekaizoku.com/?s={search_query}"
+        html_text = requests.get(search_url).text
+        soup = bs4.BeautifulSoup(html_text, "html.parser")
+        search_result = soup.find_all("h2", {"class": "post-title"})
+
+        if search_result:
+            result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>: \n"
+            for entry in search_result:
+                post_link = "https://animekaizoku.com/" + entry.a["href"]
+                post_name = html.escape(entry.text)
+                result += f"• <a href='{post_link}'>{post_name}</a>\n"
+        else:
+            more_results = False
+            result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"
+
+    elif site == "kayo":
+        search_url = f"https://animekayo.com/?s={search_query}"
+        html_text = requests.get(search_url).text
+        soup = bs4.BeautifulSoup(html_text, "html.parser")
+        search_result = soup.find_all("h2", {"class": "title"})
+
+        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKayo</code>: \n"
+        for entry in search_result:
+
+            if entry.text.strip() == "Nothing Found":
+                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKayo</code>"
+                more_results = False
+                break
+
+            post_link = entry.a["href"]
+            post_name = html.escape(entry.text.strip())
+            result += f"• <a href='{post_link}'>{post_name}</a>\n"
+
+    buttons = [[InlineKeyboardButton("See all results", url=search_url)]]
+
+    if more_results:
+        message.reply_text(
+            result,
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            disable_web_page_preview=True,
+        )
+    else:
+        message.reply_text(
+            result, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+        )
+
+
+@run_async
+def kaizoku(update: Update, context: CallbackContext):
+    site_search(update, context, "kaizoku")
+
+
+@run_async
+def kayo(update: Update, context: CallbackContext):
+    site_search(update, context, "kayo")
+
 
 __help__ = """
 Get information about anime, manga or characters from [AniList](anilist.co).
 *Available commands:*
- - /anime <anime>: returns information about the anime.
- - /character <character>: returns information about the character.
- - /manga <manga>: returns information about the manga.
- - /user <user>: returns information about a MyAnimeList user.
- - /upcoming: returns a list of new anime in the upcoming seasons.
- - /airing <anime>: returns anime airing info.
- - /watchlist: to get your saved watchlist.
- - /mangalist: to get your saved manga read list.
- - /characterlist | fcl: to get your favorite characters list.
- - /removewatchlist | rwl <anime>: to remove a anime from your list.
- - /rfcharacter | rfcl <character>: to remove a character from your list.  
- - /rmanga | rml <manga>: to remove a manga from your list.
+
+ • `/anime <anime>*:* returns information about the anime.
+ • `/character <character>*:* returns information about the character.
+ • `/manga <manga>*:* returns information about the manga.
+ • `/user <user>*:* returns information about a MyAnimeList user.
+ • `/upcoming*:* returns a list of new anime in the upcoming seasons.
+ • `/airing <anime>*:* returns anime airing info.
+ • `/watchlist*:* to get your saved watchlist.
+ • `/mangalist*:* to get your saved manga read list.
+ • `/characterlist | fcl*:* to get your favorite characters list.
+ • `/removewatchlist | rwl <anime>*:* to remove a anime from your list.
+ • `/rfcharacter | rfcl <character>*:* to remove a character from your list.  
+ • `/rmanga | rml <manga>*:* to remove a manga from your list.
+ • `/kaizoku <anime>`*:* search an anime on animekaizoku.com
+ • `/kayo <anime>`*:* search an anime on animekayo.com
+
  """
 
 ANIME_HANDLER = DisableAbleCommandHandler("anime", anime)
@@ -702,6 +775,8 @@ REMOVE_FVRT_CHAR_HANDLER = DisableAbleCommandHandler(["rfcharacter","rfcl"], rem
 REMOVE_MANGA_CHAR_HANDLER = DisableAbleCommandHandler(["rmanga","rml"], removemangalist)
 BUTTON_HANDLER = CallbackQueryHandler(button, pattern='anime_.*')
 ANIME_STUFFS_HANDLER = CallbackQueryHandler(animestuffs, pattern='xanime_.*')
+KAIZOKU_SEARCH_HANDLER = DisableAbleCommandHandler("kaizoku", kaizoku)
+KAYO_SEARCH_HANDLER = DisableAbleCommandHandler("kayo", kayo)
 
 dispatcher.add_handler(BUTTON_HANDLER)
 dispatcher.add_handler(ANIME_STUFFS_HANDLER)
@@ -717,5 +792,7 @@ dispatcher.add_handler(FVRT_CHAR_HANDLER)
 dispatcher.add_handler(REMOVE_FVRT_CHAR_HANDLER)
 dispatcher.add_handler(REMOVE_MANGA_CHAR_HANDLER)
 dispatcher.add_handler(REMOVE_WATCHLIST_HANDLER)
+dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
+dispatcher.add_handler(KAYO_SEARCH_HANDLER)
 
 __mod_name__ = "Anime"

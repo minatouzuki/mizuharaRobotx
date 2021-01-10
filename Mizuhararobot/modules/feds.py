@@ -24,7 +24,7 @@ from Mizuhararobot import (
     dispatcher,
     OWNER_ID,
     DRAGONS,
-    WHITELIST_USERS,
+    WOLVES,
     MESSAGE_DUMP,
     LOGGER,
 )

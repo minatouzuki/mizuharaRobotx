@@ -152,11 +152,6 @@ def pat(update: Update, context: CallbackContext):
 
 
 @run_async
-def roll(update: Update, context: CallbackContext):
-    update.message.reply_text(random.choice(range(1, 7)))
-
-
-@run_async
 def shout(update: Update, context: CallbackContext):
     args = context.args
     text = " ".join(args)
@@ -174,15 +169,6 @@ def shout(update: Update, context: CallbackContext):
 @run_async
 def toss(update: Update, context: CallbackContext):
     update.message.reply_text(random.choice(fun_strings.TOSS))
-
-
-@run_async
-def shrug(update: Update, context: CallbackContext):
-    msg = update.effective_message
-    reply_text = (
-        msg.reply_to_message.reply_text if msg.reply_to_message else msg.reply_text
-    )
-    reply_text(r"¯\_(ツ)_/¯")
 
 
 @run_async
@@ -207,16 +193,6 @@ def rlg(update: Update, context: CallbackContext):
     else:
         repl = ears[0] + eyes[0] + mouth[0] + eyes[0] + ears[1]
     update.message.reply_text(repl)
-
-
-@run_async
-def decide(update: Update, context: CallbackContext):
-    reply_text = (
-        update.effective_message.reply_to_message.reply_text
-        if update.effective_message.reply_to_message
-        else update.effective_message.reply_text
-    )
-    reply_text(random.choice(fun_strings.DECIDE))
 
 
 @run_async
@@ -317,12 +293,9 @@ def weebify(update: Update, context: CallbackContext):
 __help__ = """
  • `/runs`*:* reply a random string from an array of replies
  • `/slap`*:* slap a user, or get slapped if not a reply
- • `/shrug`*:* get shrug XD
  • `/table`*:* get flip/unflip :v
- • `/decide`*:* Randomly answers yes/no/maybe
  • `/toss`*:* Tosses A coin
  • `/bluetext`*:* check urself :V
- • `/roll`*:* Roll a dice
  • `/rlg`*:* Join ears,nose,mouth and create an emo ;-;
  • `/shout <keyword>`*:* write anything you want to give loud shout
  • `/weebify <text>`*:* returns a weebified text
@@ -334,12 +307,9 @@ SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
-ROLL_HANDLER = DisableAbleCommandHandler("roll", roll)
 TOSS_HANDLER = DisableAbleCommandHandler("toss", toss)
-SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
 RLG_HANDLER = DisableAbleCommandHandler("rlg", rlg)
-DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
 SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
@@ -350,24 +320,18 @@ dispatcher.add_handler(SANITIZE_HANDLER)
 dispatcher.add_handler(RUNS_HANDLER)
 dispatcher.add_handler(SLAP_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
-dispatcher.add_handler(ROLL_HANDLER)
 dispatcher.add_handler(TOSS_HANDLER)
-dispatcher.add_handler(SHRUG_HANDLER)
 dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
-dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
 __mod_name__ = "Fun"
 __command_list__ = [
     "runs",
     "slap",
-    "roll",
     "toss",
-    "shrug",
     "bluetext",
     "rlg",
-    "decide",
     "table",
     "pat",
     "sanitize",
@@ -378,12 +342,9 @@ __handlers__ = [
     RUNS_HANDLER,
     SLAP_HANDLER,
     PAT_HANDLER,
-    ROLL_HANDLER,
     TOSS_HANDLER,
-    SHRUG_HANDLER,
     BLUETEXT_HANDLER,
     RLG_HANDLER,
-    DECIDE_HANDLER,
     TABLE_HANDLER,
     SANITIZE_HANDLER,
     SHOUT_HANDLER,

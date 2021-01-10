@@ -2474,7 +2474,7 @@ MY_SUB_FED = CommandHandler("fedsubs", get_myfedsubs, pass_args=True)
 MY_FEDS_LIST = CommandHandler("myfeds", get_myfeds_list)
 
 DELETEBTN_FED_HANDLER = CallbackQueryHandler(
-    del_fed_button, pattern=r"rmfed_", run_async=True
+    del_fed_button, pattern=r"rmfed_", 
 )
 
 dispatcher.add_handler(NEW_FED_HANDLER)

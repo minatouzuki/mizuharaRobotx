@@ -23,7 +23,7 @@ from telegram.utils.helpers import mention_html, mention_markdown
 from Mizuhararobot import (
     dispatcher,
     OWNER_ID,
-    SUDO_USERS,
+    DRAGONS,
     WHITELIST_USERS,
     MESSAGE_DUMP,
     LOGGER,

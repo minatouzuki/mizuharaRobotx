@@ -25,7 +25,7 @@ from Mizuhararobot import (
     OWNER_ID,
     DRAGONS,
     WOLVES,
-    MESSAGE_DUMP,
+    EVENT_LOGS,
     LOGGER,
 )
 from Mizuhararobot.modules.helper_funcs.chat_status import is_user_admin

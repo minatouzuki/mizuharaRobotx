@@ -25,7 +25,6 @@ from Mizuhararobot import (
     OWNER_ID,
     DRAGONS,
     WOLVES,
-    MESSAGE_DUMP,
     LOGGER,
 )
 from Mizuhararobot.modules.helper_funcs.chat_status import is_user_admin
@@ -112,7 +111,7 @@ def new_fed(update, context):
         x = sql.new_fed(user.id, fed_name, fed_id)
         if not x:
             update.effective_message.reply_text(
-                "Can't federate! Please contact my owner @starryboi if the problem persists."
+                "Can't federate! Please contact @chizurusupport if the problem persists."
             )
             return
 
@@ -620,11 +619,11 @@ def fed_ban(update, context):
         message.reply_text("That's a very STUPID idea!")
         return
 
-    if int(user_id) in SUDO_USERS:
+    if int(user_id) in DRAGONS:
         message.reply_text("I will not use sudo fban!")
         return
 
-    if int(user_id) in WHITELIST_USERS:
+    if int(user_id) in WOLVES:
         message.reply_text("This person can't be fbanned!")
         return
 

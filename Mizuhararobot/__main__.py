@@ -37,7 +37,7 @@ from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hello there,The name's [Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
+Hello there,The name's 
 
 I am an Anime Themed Group Managing Bot and I will help in managing your group
 
@@ -66,7 +66,7 @@ I'm a modular group management bot with a few fun extras! Have a look at the fol
 the things I can help you with.
 
 
-*Main* commands available:
+*Main* commands available:[ʕ·ᴥ·ʔ](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
  × /start: Starts me, can be used to check I'm alive or not.
  × /help: PM's you this message.
  × /help <module name>: PM's you info about that module.

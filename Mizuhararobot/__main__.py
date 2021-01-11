@@ -13,7 +13,7 @@ from telegram.ext import (
 from telegram.ext.dispatcher import DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from kaguya import (
+from Mizuhararobot import (
     dispatcher,
     updater,
     TOKEN,
@@ -29,11 +29,11 @@ from kaguya import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from kaguya.modules import ALL_MODULES
-from kaguya.modules.purge import client
-from kaguya.modules.helper_funcs.chat_status import is_user_admin
-from kaguya.modules.helper_funcs.misc import paginate_modules
-from kaguya.modules.helper_funcs.alternate import typing_action
+from Mizuhararobot.modules import ALL_MODULES
+from Mizuhararobot.modules.purge import client
+from Mizuhararobot.modules.helper_funcs.chat_status import is_user_admin
+from Mizuhararobot.modules.helper_funcs.misc import paginate_modules
+from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
@@ -50,9 +50,9 @@ Wanna add me to your group? Just click the button below!
 buttons = [
     [
         InlineKeyboardButton(
-            text="Add to Group 👥", url="t.me/KaguyaRobot?startgroup=true"
+            text="Add to Group 👥", url="t.me/Chizurumanagementbot?startgroup=true"
         ),
-        InlineKeyboardButton(text="Updates 📢", url="https://t.me/utahaupd"),
+        InlineKeyboardButton(text="Updates 📢", url="https://t.me/chizuruupdates"),
     ]
 ]
 
@@ -90,7 +90,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("kaguya.modules." + module_name)
+    imported_module = importlib.import_module("Mizuhararobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 

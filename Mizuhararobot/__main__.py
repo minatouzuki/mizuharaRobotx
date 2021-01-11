@@ -37,10 +37,11 @@ from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hello there,The name is [Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
+Hello there,The name is *{dispatcher.bot.first_name}*.
+[Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
 
 I am an Anime Themed Group Managing Bot and I will help in managing your group
-
+[Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
 """
 
 buttons = [
@@ -55,9 +56,6 @@ buttons = [
 buttons += [
     [InlineKeyboardButton(text="Help & Commands ❔", callback_data="help_back")]
 ]
-
-
-[Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
 
 
 HELP_STRINGS = f"""

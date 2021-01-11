@@ -57,6 +57,9 @@ buttons += [
 ]
 
 
+BOT_IMG = "https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg"
+
+
 HELP_STRINGS = f"""
 Hello there! My name is *{dispatcher.bot.first_name}*.
 I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \

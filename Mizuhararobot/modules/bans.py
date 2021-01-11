@@ -416,28 +416,28 @@ def sban(update, context):
     update.effective_message.delete()
 
     if user_can_ban(chat, user, context.bot.id) is False:
-        return ""
+        return 
 
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        return ""
+        return 
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            return ""
+            return 
         raise
 
     if is_user_ban_protected(chat, user_id, member):
         return ""
 
     if user_id == context.bot.id:
-        return ""
+        return 
     
     if user_id == 777000 or user_id == 1087968824:
-        return ""            
+        return             
 
     log = (
         "<b>{}:</b>"
@@ -471,7 +471,7 @@ def sban(update, context):
             excp.message,
         )
 
-    return ""
+    return 
 
 
 @run_async
@@ -489,32 +489,32 @@ def stemp_ban(update, context):
     update.effective_message.delete()
 
     if user_can_ban(chat, user, context.bot.id) is False:
-        return ""
+        return 
 
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        return ""
+        return 
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
             message.reply_text("I can't seem to find this user")
-            return ""
+            return 
         raise
 
     if is_user_ban_protected(chat, user_id, member):
-        return ""
+        return 
 
     if user_id == context.bot.id:
-        return ""
+        return 
     
     if user_id == 777000 or user_id == 1087968824:
-        return ""  
+        return   
 
     if not reason:
-        return ""
+        return 
 
     split_reason = reason.split(None, 1)
 
@@ -522,12 +522,12 @@ def stemp_ban(update, context):
     if len(split_reason) > 1:
         reason = split_reason[1]
     else:
-        reason = ""
+        reason = 
 
     bantime = extract_time(message, time_val)
 
     if not bantime:
-        return ""
+        return 
 
     log = (
         "<b>{}:</b>"
@@ -561,7 +561,7 @@ def stemp_ban(update, context):
             excp.message,
         )
 
-    return ""
+    return 
 
 @run_async
 @bot_admin
@@ -578,28 +578,28 @@ def skick(update, context):
     update.effective_message.delete()
 
     if user_can_ban(chat, user, context.bot.id) is False:
-        return ""
+        return 
 
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        return ""
+        return 
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            return ""
+            return 
         raise
 
     if is_user_ban_protected(chat, user_id):
         return ""
 
     if user_id == context.bot.id:
-        return ""
+        return 
     
     if user_id == 777000 or user_id == 1087968824:
-        return ""  
+        return 
 
     res = chat.unban_member(user_id)  # unban on current user = kick
     if res:
@@ -621,7 +621,7 @@ def skick(update, context):
         return log
 
 
-     return ""   
+     return   
 
 
 

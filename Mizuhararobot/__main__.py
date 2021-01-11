@@ -66,6 +66,8 @@ Hello there! My name is *{dispatcher.bot.first_name}*.
 I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
 the things I can help you with.
 
+BOT_IMG = "https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4"
+
 *Main* commands available:
  × /start: Starts me, can be used to check I'm alive or not.
  × /help: PM's you this message.

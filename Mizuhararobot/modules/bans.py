@@ -644,6 +644,9 @@ KICK_HANDLER = CommandHandler("kick", kick)
 UNBAN_HANDLER = CommandHandler("unban", unban)
 ROAR_HANDLER = CommandHandler("roar", selfunban)
 KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.group)
+SBAN_HANDLER = CommandHandler("sban", sban)
+STEMPBAN_HANDLER = CommandHandler("stban", stemp_ban
+SKICK_HANDLER = CommandHandler("skick", skick)
 
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)
@@ -651,6 +654,9 @@ dispatcher.add_handler(KICK_HANDLER)
 dispatcher.add_handler(UNBAN_HANDLER)
 dispatcher.add_handler(ROAR_HANDLER)
 dispatcher.add_handler(KICKME_HANDLER)
+dispatcher.add_handler(SBAN_HANDLER)
+dispatcher.add_handler(STEMPBAN_HANDLER)
+dispatcher.add_handler(SKICK_HANDLER)
 
 __mod_name__ = "Bans"
 __handlers__ = [
@@ -660,4 +666,7 @@ __handlers__ = [
     UNBAN_HANDLER,
     ROAR_HANDLER,
     KICKME_HANDLER,
+    SBAN_HANDLER, 
+    STEMPBAN_HANDLER, 
+    SKICK_HANDLER
 ]

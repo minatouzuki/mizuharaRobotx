@@ -23,8 +23,8 @@ from Mizuhararobot import (
     PORT,
     URL,
     LOGGER,
-    BLACKLIST_CHATS,
-    WHITELIST_CHATS,
+    SUPPORT_CHAT, 
+    telethn
 )
 
 # needed to dynamically load modules

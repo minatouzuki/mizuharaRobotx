@@ -612,12 +612,12 @@ def main():
             )
         else:
             updater.bot.set_webhook(url=URL + TOKEN)
-            client.run_until_disconnected()
+            telethn.run_until_disconnected()
 
     else:
         LOGGER.info("Using long polling.")
         updater.start_polling(timeout=15, read_latency=4)
-        client.run_until_disconnected()
+        telethn.run_until_disconnected()
 
     updater.idle()
 

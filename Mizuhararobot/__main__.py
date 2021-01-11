@@ -37,7 +37,7 @@ from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hello there,The name's [Mizuhara](https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4)
+Hello there,The name's [Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
 
 I am an Anime Themed Group Managing Bot and I will help in managing your group
 

@@ -401,6 +401,233 @@ def selfunban(context: CallbackContext, update: Update) -> str:
     return log
 
 
+@run_async
+@bot_admin
+@can_restrict
+@user_admin
+@loggable
+@typing_action
+def sban(update, context):
+    chat = update.effective_chat  # type: Optional[Chat]
+    user = update.effective_user  # type: Optional[User]
+    message = update.effective_message  # type: Optional[Message]
+    args = context.args
+    
+    update.effective_message.delete()
+
+    if user_can_ban(chat, user, context.bot.id) is False:
+        return ""
+
+    user_id, reason = extract_user_and_text(message, args)
+
+    if not user_id:
+        return ""
+
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message == "User not found":
+            return ""
+        raise
+
+    if is_user_ban_protected(chat, user_id, member):
+        return ""
+
+    if user_id == context.bot.id:
+        return ""
+    
+    if user_id == 777000 or user_id == 1087968824:
+        return ""            
+
+    log = (
+        "<b>{}:</b>"
+         "\n#SILENT_BAN" \
+        "\n<b>Admin:</b> {}"
+        "\n<b>User:</b> {} (<code>{}</code>)".format(   
+            html.escape(chat.title),
+            mention_html(user.id, user.first_name),
+            mention_html(member.user.id, member.user.first_name),
+            member.user.id,
+        )
+    )
+    if reason:
+        log += "\n<b>Reason:</b> {}".format(reason)
+
+    try:
+        chat.kick_member(user_id)
+        return log
+
+    except BadRequest as excp:
+        if excp.message == "Reply message not found":
+            # Do not reply       
+            return log
+
+        LOGGER.warning(update)
+        LOGGER.exception(
+            "ERROR banning user %s in chat %s (%s) due to %s",
+            user_id,
+            chat.title,
+            chat.id,
+            excp.message,
+        )
+
+    return ""
+
+
+@run_async
+@bot_admin
+@can_restrict
+@user_admin
+@loggable
+@typing_action
+def stemp_ban(update, context):
+    chat = update.effective_chat  # type: Optional[Chat]
+    user = update.effective_user  # type: Optional[User]
+    message = update.effective_message  # type: Optional[Message]
+    args = context.args
+
+    update.effective_message.delete()
+
+    if user_can_ban(chat, user, context.bot.id) is False:
+        return ""
+
+    user_id, reason = extract_user_and_text(message, args)
+
+    if not user_id:
+        return ""
+
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message == "User not found":
+            message.reply_text("I can't seem to find this user")
+            return ""
+        raise
+
+    if is_user_ban_protected(chat, user_id, member):
+        return ""
+
+    if user_id == context.bot.id:
+        return ""
+    
+    if user_id == 777000 or user_id == 1087968824:
+        return ""  
+
+    if not reason:
+        return ""
+
+    split_reason = reason.split(None, 1)
+
+    time_val = split_reason[0].lower()
+    if len(split_reason) > 1:
+        reason = split_reason[1]
+    else:
+        reason = ""
+
+    bantime = extract_time(message, time_val)
+
+    if not bantime:
+        return ""
+
+    log = (
+        "<b>{}:</b>"
+        "\n#SLIENT TEMP BANNED"
+        "\n<b>Admin:</b> {}"
+        "\n<b>User:</b> {} (<code>{}</code>)"
+        "\n<b>Time:</b> {}".format(
+            html.escape(chat.title),
+            mention_html(user.id, user.first_name),
+            mention_html(member.user.id, member.user.first_name),
+            member.user.id,
+            time_val,
+        )
+    )
+    if reason:
+        log += "\n<b>Reason:</b> {}".format(reason)
+
+    try:
+        chat.kick_member(user_id, until_date=bantime)       
+           
+
+    except BadRequest as excp:
+        if excp.message == "Reply message not found":
+            return log
+        LOGGER.warning(update)
+        LOGGER.exception(
+            "ERROR banning user %s in chat %s (%s) due to %s",
+            user_id,
+            chat.title,
+            chat.id,
+            excp.message,
+        )
+
+    return ""
+
+@run_async
+@bot_admin
+@can_restrict
+@user_admin
+@loggable
+@typing_action
+def skick(update, context):
+    chat = update.effective_chat  # type: Optional[Chat]
+    user = update.effective_user  # type: Optional[User]
+    message = update.effective_message  # type: Optional[Message]
+    args = context.args   
+   
+    update.effective_message.delete()
+
+    if user_can_ban(chat, user, context.bot.id) is False:
+        return ""
+
+    user_id, reason = extract_user_and_text(message, args)
+
+    if not user_id:
+        return ""
+
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message == "User not found":
+            return ""
+        raise
+
+    if is_user_ban_protected(chat, user_id):
+        return ""
+
+    if user_id == context.bot.id:
+        return ""
+    
+    if user_id == 777000 or user_id == 1087968824:
+        return ""  
+
+    res = chat.unban_member(user_id)  # unban on current user = kick
+    if res:
+    
+        log = (
+            "<b>{}:</b>"
+            "\n#SLIENT KICKED"
+            "\n<b>Admin:</b> {}"
+            "\n<b>User:</b> {} (<code>{}</code>)".format(
+                html.escape(chat.title),
+                mention_html(user.id, user.first_name),
+                mention_html(member.user.id, member.user.first_name),
+                member.user.id,
+            )
+        )
+        if reason:
+            log += "\n<b>Reason:</b> {}".format(reason)
+
+        return log
+
+
+     return ""   
+
+
+
+
+
+
 __help__ = """
  • `/kickme`*:* kicks the user who issued the command
 

@@ -57,7 +57,7 @@ buttons += [
 ]
 
 
-BOT_IMG = "https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg"
+[Mizuhara](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
 
 
 HELP_STRINGS = f"""

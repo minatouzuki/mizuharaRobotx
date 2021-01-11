@@ -37,14 +37,10 @@ from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hey there! My name is <b>{dispatcher.bot.first_name}</b> [Mizuhara](https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4).If you have any questions on how to use me, click the 'Help & Commands' button.
+Hello there,The name's [Mizuhara](https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4)
 
-I'm here to make your group management fun and easy!
-I have lots of handy features, such as flood control, a warning system, a note keeping system, and even replies on predetermined filters.
+I am an Anime Themed Group Managing Bot and I will help in managing your group
 
-
-
-Wanna add me to your group? Just click the button below!
 """
 
 buttons = [

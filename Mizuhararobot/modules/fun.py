@@ -290,18 +290,6 @@ def weebify(update: Update, context: CallbackContext):
         message.reply_text(string)
 
 
-__help__ = """
- • `/runs`*:* reply a random string from an array of replies
- • `/slap`*:* slap a user, or get slapped if not a reply
- • `/table`*:* get flip/unflip :v
- • `/toss`*:* Tosses A coin
- • `/bluetext`*:* check urself :V
- • `/rlg`*:* Join ears,nose,mouth and create an emo ;-;
- • `/shout <keyword>`*:* write anything you want to give loud shout
- • `/weebify <text>`*:* returns a weebified text
- • `/sanitize`*:* always use this before /pat or any contact
- • `/pat`*:* pats a user, or get patted
-"""
 
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
@@ -325,7 +313,7 @@ dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
-__mod_name__ = "Fun"
+
 __command_list__ = [
     "runs",
     "slap",

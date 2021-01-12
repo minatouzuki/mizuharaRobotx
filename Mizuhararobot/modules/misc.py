@@ -97,6 +97,8 @@ __help__ = """
  • `/wall <query>`*:* get a wallpaper from wall.alphacoders.com
 *Currency converter:* 
  • `/cash`*:* currency converter
+ • `/reverse`*:* Does a *reverse image search* of the media which it was replied to.
+Reports bugs at @chizurusupport
 Example:
  `/cash 1 USD INR`  
       _OR_

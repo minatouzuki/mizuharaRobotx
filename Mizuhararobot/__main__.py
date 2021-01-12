@@ -173,12 +173,9 @@ def start(update, context):
 
 
     else:
-         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
-                uptime
-            ),
-            parse_mode=ParseMode.HTML,
-        )
+        update.effective_message.reply_text("Hi, I am mizuhara n<b>Haven't slept since:</b> <code>{}</code>".format(
+                uptime))
+
 
 
 def error_handler(update, context):

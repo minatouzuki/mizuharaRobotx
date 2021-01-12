@@ -4,8 +4,9 @@ import sys
 import time
 import spamwatch
 from redis import StrictRedis
-import telegram.ext as tg
+from pyrogram import Client, errors
 
+import telegram.ext as tg
 from telethon import TelegramClient
 
 StartTime = time.time()
@@ -87,9 +88,16 @@ if ENV:
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
 
     try:
-        BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
+        WHITELIST_CHATS = {int(x) for x in os.environ.get('WHITELIST_CHATS', "").split()}
     except ValueError:
-        raise Exception("Your blacklisted chats list does not contain valid integers.")
+        raise Exception(
+            "Your blacklisted chats list does not contain valid integers.")
+
+    try:
+        BLACKLIST_CHATS = {int(x) for x in os.environ.get('BLACKLIST_CHATS', "").split()}
+    except ValueError:
+        raise Exception(
+            "Your blacklisted chats list does not contain valid integers.")
 
 else:
     from Mizuhararobot.config import Development as Config
@@ -153,9 +161,16 @@ else:
     INFOPIC = Config.INFOPIC
 
     try:
-        BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
+        WHITELIST_CHATS = {int(x) for x in os.environ.get('WHITELIST_CHATS', "").split()}
     except ValueError:
-        raise Exception("Your blacklisted chats list does not contain valid integers.")
+        raise Exception(
+            "Your blacklisted chats list does not contain valid integers.")
+
+    try:
+        BLACKLIST_CHATS = {int(x) for x in os.environ.get('BLACKLIST_CHATS', "").split()}
+    except ValueError:
+        raise Exception(
+            "Your blacklisted chats list does not contain valid integers.")
 
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
@@ -181,7 +196,8 @@ updater = tg.Updater(
     # base_url='https://bot.mannu.me/bot',
     use_context=True
 )
-telethn = TelegramClient("saitama", API_ID, API_HASH)
+telethn = TelegramClient("mizuhara", API_ID, API_HASH)
+pbot = Client("mizuharaPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)

@@ -28,7 +28,7 @@ You can find my list of available commands with /help.
 """
 
 
-BOT_IMG = "https://telegra.ph/file/0f6a2472ca83a579bcff3.mp4"
+BOT_IMG = "https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4"
 
 
 

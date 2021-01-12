@@ -173,8 +173,7 @@ def start(update, context):
 
 
     else:
-        update.effective_message.reply_text("Hi, I am mizuhara n<b>Haven't slept since:</b> <code>{}</code>".format(
-                uptime))
+        update.effective_message.reply_text("Heya, my name is mizuhara")
 
 
 

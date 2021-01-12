@@ -99,6 +99,55 @@ def mute(update: Update, context: CallbackContext) -> str:
 @bot_admin
 @user_admin
 @loggable
+def smute(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    chat = update.effective_chat
+    user = update.effective_user
+    message = update.effective_message
+    args = context.args  
+    user_id, reason = extract_user_and_text(message, args)
+    update.effective_message.delete()
+    if not user_id:
+        return ""
+
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message == "User not found":
+            return ""
+        else:
+            raise
+
+    if user_id == bot.id:
+        return ""
+
+    if is_user_admin(chat, user_id, member) or user_id in TIGERS:
+        return ""
+
+    member = chat.get_member(user_id)
+
+    log = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#SMUTE\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}")
+
+    if reason:
+        log += f"\n<b>Reason:</b> {reason}"
+
+    if member.can_send_messages is None or member.can_send_messages:
+        chat_permissions = ChatPermissions(can_send_messages=False)
+        bot.restrict_chat_member(chat.id, user_id, chat_permissions)
+        return log
+
+    return ""
+
+
+@run_async
+@connection_status
+@bot_admin
+@user_admin
+@loggable
 def unmute(update: Update, context: CallbackContext) -> str:
     bot, args = context.bot, context.args
     chat = update.effective_chat
@@ -243,16 +292,19 @@ __help__ = """
 *Admins only:*
  • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
  • `/tmute <userhandle> x(m/h/d)`*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
+ • `/smute <userhandle>`*:* mutes a user for x time without notifying and can also be used a reply, mutes the replied user.
  • `/unmute <userhandle>`*:* unmutes a user. Can also be used as a reply, muting the replied to user.
 """
 
 MUTE_HANDLER = CommandHandler("mute", mute)
 UNMUTE_HANDLER = CommandHandler("unmute", unmute)
 TEMPMUTE_HANDLER = CommandHandler(["tmute", "tempmute"], temp_mute)
+SMUTE_HANDLER = CommandHandler("smute", smute)
 
 dispatcher.add_handler(MUTE_HANDLER)
 dispatcher.add_handler(UNMUTE_HANDLER)
 dispatcher.add_handler(TEMPMUTE_HANDLER)
+dispatcher.add_handler(SMUTE_HANDLER)
 
 __mod_name__ = "Muting"
-__handlers__ = [MUTE_HANDLER, UNMUTE_HANDLER, TEMPMUTE_HANDLER]
+__handlers__ = [MUTE_HANDLER, UNMUTE_HANDLER, TEMPMUTE_HANDLER, SMUTE_HANDLER]

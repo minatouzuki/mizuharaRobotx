@@ -23,6 +23,7 @@ googletrans==3.1.0a0
 jikanpy
 speedtest-cli
 coffeehouse
+youtube-dl
 regex
 bleach
 git+https://github.com/starry69/python-markdown2.git
@@ -35,3 +36,5 @@ cachetools
 youtube-dl
 instantmusic
 pytz
+pytube
+youtube-search-python

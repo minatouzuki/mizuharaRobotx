@@ -447,6 +447,14 @@ Some dank memes for fun or whatever!
  - /stretch:  streeeeeeetch iiiiiiit.
  - /warm: Hug a user warmly, or get hugged if not a reply.
  - /punch: Punch a user, or get punched if not a reply.
+ - /toss: Tosses A coin
+ - /bluetext: check urself :V
+ - /rlg: Join ears,nose,mouth and create an emo ;-;
+ - /shout <keyword>: write anything you want to give loud shout
+ - /weebify <text>: returns a weebified text
+ - /sanitize: always use this before /pat or any contact
+ - /pat: pats a user, or get patted
+
 *Regex based memes:*
 `/decide` can be also used with regex like: `mizuhara? <question>: randomly answer "Yes, No" etc.`
 Some other regex filters are:

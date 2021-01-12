@@ -454,6 +454,8 @@ Some dank memes for fun or whatever!
  - /weebify <text>: returns a weebified text
  - /sanitize: always use this before /pat or any contact
  - /pat: pats a user, or get patted
+ - /truth: for random truth
+ - /dare: for random dare
 
 *Regex based memes:*
 `/decide` can be also used with regex like: `mizuhara? <question>: randomly answer "Yes, No" etc.`
@@ -463,7 +465,7 @@ perry will reply random strings accordingly when these words are used!
 All regex filters can be disabled incase u don't want... like: `/disable metoo`.
 """
 
-__mod_name__ = "Memes"
+__mod_name__ = "Fun"
 
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 DECIDE_HANDLER = DisableAbleMessageHandler(

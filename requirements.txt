@@ -38,3 +38,5 @@ instantmusic
 pytz
 pytube
 youtube-search-python
+ffmpeg
+

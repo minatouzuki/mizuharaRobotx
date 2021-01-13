@@ -2,13 +2,6 @@ import asyncio
 import aiohttp
 import os
 
-__MODULE__ = "Paste"
-__HELP__ = """
-──「 **Paste to Nekobin** 」──
--> `/paste`
-Create a Nekobin paste using replied to message/document or using args.
-"""
-
 
 async def paste(client, message):
     if message.reply_to_message:

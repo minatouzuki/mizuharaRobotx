@@ -547,6 +547,7 @@ Examples:
 
 *Overall Information about you:*
  • `/info`*:* get information about a user. 
+ • `/spbinfo`*:* get information about user from spam protection.
  
 *What is that health thingy?*
  Come and see [HP System explained](https://t.me/OnePunchUpdates/192)

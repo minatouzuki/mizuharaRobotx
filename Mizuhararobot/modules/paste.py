@@ -1,51 +1,43 @@
-import asyncio
-import aiohttp
-import os
+import requests
+from Mizuhararobot import dispatcher
+from Mizuhararobot.modules.disable import DisableAbleCommandHandler
+from telegram import ParseMode, Update
+from telegram.ext import CallbackContext, run_async
 
 
-async def paste(client, message):
+@run_async
+def paste(update: Update, context: CallbackContext):
+    args = context.args
+    message = update.effective_message
+
     if message.reply_to_message:
-        text = message.reply_to_message.text
-    if message.reply_to_message.document and message.reply_to_message.document.file_size < 2 ** 20 * 10:
-        var = os.path.splitext(message.reply_to_message.document.file_name)[1]
-        print(var)
-        path = await message.reply_to_message.download("nana/")
-        with open(path, 'r') as doc:
-            text = doc.read()
-        os.remove(path)
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.post(
-                    'https://nekobin.com/api/documents',
-                    json={"content": text},
-                    timeout=3
-            ) as response:
-                key = (await response.json())["result"]["key"]
-    except Exception:
-        await message.edit_text("`Pasting failed`")
-        await asyncio.sleep(2)
-        await message.delete()
-        return
+        data = message.reply_to_message.text
+
+    elif len(args) >= 1:
+        data = message.text.split(None, 1)[1]
+
     else:
-        url = f'https://nekobin.com/{key}'
-        raw_url = f'https://nekobin.com/raw/{key}'
-        reply_text = '**Nekofied:**\n'
-        reply_text += f' - **Link**: {url}\n'
-        reply_text += f' - **Raw**: {raw_url}'
-        delete = bool(len(message.command) > 1 and \
-                        message.command[1] in ['d', 'del'] and \
-                        message.reply_to_message.from_user.is_self)
-        if delete:
-            await asyncio.gather(
-                client.send_message(message.chat.id,
-                                    reply_text,
-                                    disable_web_page_preview=True
-                                    ),
-                message.reply_to_message.delete(),
-                message.delete()
-            )
-        else:
-            await message.reply(
-                reply_text,
-                disable_web_page_preview=True,
-            )
+        message.reply_text("What am I supposed to do with this?")
+        return
+
+    key = (
+        requests.post("https://nekobin.com/api/documents", json={"content": data})
+        .json()
+        .get("result")
+        .get("key")
+    )
+
+    url = f"https://nekobin.com/{key}"
+
+    reply_text = f"Nekofied to *Nekobin* : {url}"
+
+    message.reply_text(
+        reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
+    )
+
+
+PASTE_HANDLER = DisableAbleCommandHandler("paste", paste)
+dispatcher.add_handler(PASTE_HANDLER)
+
+__command_list__ = ["paste"]
+__handlers__ = [PASTE_HANDLER]

@@ -1,6 +1,6 @@
+
 import re
 import html
-import regex
 import aiohttp
 from datetime import datetime
 from asyncio import sleep
@@ -12,6 +12,19 @@ from Mizuhararobot import pbot, LOGGER
 from pyrogram import Client, filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.types import Message
+
+
+def yt_search(song):
+    videosSearch = VideosSearch(song, limit=1)
+    result = videosSearch.result()
+    if not result:
+        return False
+    else:
+        video_id = result["result"][0]["id"]
+        url = f"https://youtu.be/{video_id}"
+        return url
+
+
 
 
 @pbot.on_message(filters.command("song"))
@@ -110,3 +123,5 @@ async def lookup(client, message):
     else:
         await message.reply_text("`cannot reach SpamProtection API`")
         await sleep(3)
+
+

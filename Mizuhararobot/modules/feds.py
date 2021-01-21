@@ -2429,26 +2429,26 @@ You can even designate admin federations, so your trusted admin can ban all the 
 
 *Only Chat Owner:*
 
-- /joinfed (Fed ID): Joins current chat to provided Federation
-- /leavefed (Fed ID): Leaves the federation given in the current chat
+ - /joinfed (Fed ID): Joins current chat to provided Federation
+ - /leavefed (Fed ID): Leaves the federation given in the current chat
 
 *Only Fed admins and owners:*
 
-- /fedadmins: Shows the list of admins in a federation.
-- /fbanlist: Displays all users who are victimized at the federation at this time.
-- /fban <user> <reason>: Bans the user from fed
-- /unfban <user> <reason>: Unbans the user from fed
-- /fedchats: Get all chats that are connected in the federation
-- /chatfed: See the federation in the current chat
-- /setfrules <rules>: Arranges the rules for a federation 
-- /fedinfo <Fed ID>: Shows the information about the specified federation 
-- /myfeds: Shows the list of feds you created
+ - /fedadmins: Shows the list of admins in a federation.
+ - /fbanlist: Displays all users who are victimized at the federation at this time.
+ - /fban <user> <reason>: Bans the user from fed
+ - /unfban <user> <reason>: Unbans the user from fed
+ - /fedchats: Get all chats that are connected in the federation
+ - /chatfed: See the federation in the current chat
+ - /setfrules <rules>: Arranges the rules for a federation 
+ - /fedinfo <Fed ID>: Shows the information about the specified federation 
+ - /myfeds: Shows the list of feds you created
 
 *Available for all users:*
 
-- /fbanstat: Shows if you or the user you replying to or their username is fbanned somewhere or not.
-- /frules: See federation regulations 
-- /fednotif <on/off>: Federation settings not in PM when they are fbanned or unfbanned
+ - /fbanstat: Shows if you or the user you replying to or their username is fbanned somewhere or not.
+ - /frules: See federation regulations 
+ - /fednotif <on/off>: Federation settings not in PM when they are fbanned or unfbanned
 
 """
 

@@ -2425,7 +2425,7 @@ You can even designate admin federations, so your trusted admin can ban all the 
  - /fbroadcast <message>: Broadcasts a messages to all groups who have joined your fed.
  - /importfbans: Reply to the Federation backup message file to import the banned list to the Federation now.
  - /setfedlog <Fed ID>: Sets the group as fed log report base for the federation 
- - /unsetfedlog<Fed ID>: Removes the group as a fed log report base for the federation 
+ - /unsetfedlog <Fed ID>: Removes the group as a fed log report base for the federation 
 
 *Only Chat Owner:*
 

@@ -473,11 +473,15 @@ __help__ = """
 *Admins only:*
  • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  • `/unpin`*:* unpins the currently pinned message
- • `/invitelink`*:* gets invitelink
+ • `/invitelink`*:* gets the invitelink of chat
  • `/promote`*:* promotes the user replied to
  • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
  • `/admincache`*:* force refresh the admins list
+
+Example:
+Sometimes, you promote or demote an admin manually, and Mizuhara doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
+This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /admincache command; that'll force Mizuhara to check who the admins are again.
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)

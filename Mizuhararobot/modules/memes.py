@@ -257,7 +257,7 @@ def gbun(update, context):
 
     if update.effective_message.chat.type == "private":
         return
-    if int(user.id) in DRAGONS or int(user.id) in SUPPORT_USERS:
+    if int(user.id) in DRAGONS or int(user.id) in DEMONS:
         context.bot.sendMessage(chat.id, (random.choice(fun.GBUN)))
 
 

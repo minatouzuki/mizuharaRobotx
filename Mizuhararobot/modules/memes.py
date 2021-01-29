@@ -411,14 +411,6 @@ def stretch(update, context):
         message.reply_to_message.reply_text(reply_text)
 
 
-def me_too(update, context):
-    message = update.effective_message
-    reply = random.choice(
-        ["Me too thanks", "Haha yes, me too", "Same lol", "Me irl"]
-    )
-    message.reply_text(reply)
-
-
 def goodnight(update, context):
     message = update.effective_message
     reply = random.choice(fun.GDNIGHT)
@@ -460,8 +452,8 @@ Some dank memes for fun or whatever!
 *Regex based memes:*
 `/decide` can be also used with regex like: `mizuhara? <question>: randomly answer "Yes, No" etc.`
 Some other regex filters are:
-`me too` | `goodmorning` | `goodnight`.
-perry will reply random strings accordingly when these words are used!
+ `goodmorning` | `goodnight`.
+Mizuhara will reply random strings accordingly when these words are used!
 All regex filters can be disabled incase u don't want... like: `/disable metoo`.
 """
 
@@ -486,9 +478,6 @@ PASTA_HANDLER = DisableAbleCommandHandler("pasta", copypasta)
 CLAP_HANDLER = DisableAbleCommandHandler("clap", clapmoji)
 OWO_HANDLER = DisableAbleCommandHandler("owo", owo)
 STRECH_HANDLER = DisableAbleCommandHandler("stretch", stretch)
-MEETOO_HANDLER = DisableAbleMessageHandler(
-    Filters.regex(r"(?i)(me too)"), me_too, friendly="metoo"
-)
 RECITE_HANDLER = DisableAbleCommandHandler("recite", recite)
 DICE_HANDLER = DisableAbleCommandHandler("roll", dice)
 YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf)
@@ -516,7 +505,6 @@ dispatcher.add_handler(PASTA_HANDLER)
 dispatcher.add_handler(CLAP_HANDLER)
 dispatcher.add_handler(OWO_HANDLER)
 dispatcher.add_handler(STRECH_HANDLER)
-dispatcher.add_handler(MEETOO_HANDLER)
 dispatcher.add_handler(DICE_HANDLER)
 dispatcher.add_handler(YESNOWTF_HANDLER)
 dispatcher.add_handler(GDMORNING_HANDLER)

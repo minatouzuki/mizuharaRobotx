@@ -1,7 +1,7 @@
 import html
 
 # AI module using Intellivoid's Coffeehouse API by @TheRealPhoenix
-from time import sleep, t
+from time import sleep, time
 import Mizuhararobot.modules.sql.chatbot_sql as 
 from Mizuhararobot.modules.helper_funcs.chat_status import whitelist_plus, dev_plus
 from coffeehouse.api import API

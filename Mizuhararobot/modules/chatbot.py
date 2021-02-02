@@ -3,7 +3,7 @@ import html
 # AI module using Intellivoid's Coffeehouse API by @TheRealPhoenix
 from time import sleep, time
 import Mizuhararobot.modules.sql.chatbot_sql as 
-from Mizuhararobot.modules.helper_funcs.chat_status import whitelist_plus, dev_plus
+from Mizuhararobot.modules.helper_funcs.chat_status import whitelist_plus, support_plus
 from coffeehouse.api import API
 from coffeehouse.exception import CoffeeHouseError as CFError
 from coffeehouse.lydia import LydiaAI
@@ -27,7 +27,7 @@ api_client = LydiaAI(CoffeeHouseAPI)
 
 
 @run_async
-@dev_plus
+@support_plus
 @gloggable
 def add_chat(update: Update, context: CallbackContext):
     global api_client

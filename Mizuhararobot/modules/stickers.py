@@ -678,6 +678,7 @@ Stickers made easy with stickers module!
 """
 
 __mod_name__ = "Stickers"
+
 KANG_HANDLER = DisableAbleCommandHandler("kang" , addsticker, pass_args=True)
 DEL_HANDLER = DisableAbleCommandHandler("remove", delsticker)
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)

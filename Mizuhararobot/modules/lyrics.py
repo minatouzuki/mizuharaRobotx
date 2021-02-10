@@ -35,7 +35,7 @@ def lyrics(bot: Bot, update: Update, args):
         else:
             msg.reply_text(reply)
 
-LYRICS_HANDLER = DisableAbleCommandHandler("anime", anime)
+LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
 
 dispatcher.add_handler(LYRICS_HANDLER)
                 

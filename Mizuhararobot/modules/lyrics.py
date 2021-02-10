@@ -7,10 +7,12 @@ from telegram.ext import run_async
 
 from Mizuhararobot import dispatcher
 from Mizuhararobot.modules.disable import DisableAbleCommandHandler
+from mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
-def lyrics(bot: Bot, update: Update, args):
+@typing_action
+def lyrics(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     msg = update.effective_message
     query = " ".join(args)

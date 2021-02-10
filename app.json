@@ -1,7 +1,7 @@
 {
     "name": "Mizuhararobot",
     "description": "An Anime themed Telegram group management bot.",
-    "keywords": ["telegram", "anime", "group", "manager", "Saitama"],
+    "keywords": ["telegram", "anime", "group", "manager", "Mizuhara"],
     "repository": "https://github.com/minatouzuki/Mizuhararobot",
     "addons": [{"options": {"version": "12"}, "plan": "heroku-postgresql"}],
     "env": {
@@ -28,11 +28,11 @@
         "OWNER_ID": {
             "description": "Your user ID as an integer.",
             "required": true,
-            "value": "792109647",
+            "value": "1110994624",
         },
         "OWNER_USERNAME": {
             "description": "Your username without the @",
-            "value": "Sawada",
+            "value": "minatouzuki",
         },
         "SUPPORT_CHAT": {
             "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",

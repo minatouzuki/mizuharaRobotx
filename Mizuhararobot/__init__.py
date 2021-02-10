@@ -8,7 +8,6 @@ from pyrogram import Client, errors
 
 import telegram.ext as tg
 from telethon import TelegramClient
-from spamprotection import SPBClient
 
 StartTime = time.time()
 

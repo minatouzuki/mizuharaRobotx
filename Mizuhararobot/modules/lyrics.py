@@ -38,6 +38,15 @@ def lyrics(update: Update, context: CallbackContext):
         else:
             msg.reply_text(reply)
 
+
+__help__ ="""
+ • `/reverse`*:* Does a *reverse image search* of the media which it was replied to.
+ • `/song`<song name>*:* Downloads the given song from youtube and uploads it as a file to telegram.
+ • `/weather`*:* Shows the weather for the given area,loaction of the country.
+ • `/lyrics`<song name>*:* Shows the lyrics for the given song name.
+"""
+
+__mod_name__ = "Misc"
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics, pass_args=True)
 
 dispatcher.add_handler(LYRICS_HANDLER)

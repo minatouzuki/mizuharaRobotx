@@ -16,11 +16,14 @@ News channel as at [Chizuru updates](https://t.me/chizuruupdates)
 ### Read these notes carefully before proceeding 
  - This bot is forked from saitama which is based on marie
  - Your code must be open source and a link to our repo
- - last, we don't support fork and asking for fork in our support group will result to gban.
+ - last, we don't support fork... So asking support for your fork in our support chat will be ignored.
+ 
+ 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/minatouzuki/Mizuhararobot.git) 
 
 <details>
   <summary>Steps to deploy on Heroku !! </summary>
-
+  
 ```
 Fill in all the details, Deploy!
 Now go to https://dashboard.heroku.com/apps/(app-name)/resources ( Replace (app-name) with your app name )

@@ -3,7 +3,7 @@ emoji
 redis
 lxml
 beautifulsoup4
-requests
+requests>=2.20
 sqlalchemy
 pyrogram>=1.0.7
 tgCrypto>=1.2.2
@@ -36,6 +36,8 @@ cachetools
 youtube-dl
 instantmusic
 pytz
+tswift
 pytube
 youtube-search-python
 PyLyrics
+Intellivoid-SPB

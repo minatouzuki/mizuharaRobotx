@@ -38,6 +38,10 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html
+from spamprotection.sync import SPBClient
+from spamprotection.errors import HostDownError
+client = SPBClient()
+
 
 GBAN_ENFORCE_GROUP = 6
 
@@ -414,6 +418,25 @@ def gbanlist(update: Update, context: CallbackContext):
 def check_and_ban(update, user_id, should_message=True):
 
     chat = update.effective_chat  # type: Optional[Chat]
+
+    try:
+        status = client.raw_output(int(user_id))
+        try:
+            bl_check = (status["results"]["attributes"]["is_blacklisted"])
+        except:
+            bl_check = False
+
+        if bl_check is True:
+            bl_res = (status["results"]["attributes"]["blacklist_reason"])
+            update.effective_chat.kick_member(user_id)
+            if should_message:
+                update.effective_message.reply_text(
+                f"This person was blacklisted on @SpamProtectionBot and has been removed!\nReason: <code>{bl_res}</code>",
+                parse_mode=ParseMode.HTML,
+            )
+    except HostDownError:
+        log.warning("Spam Protection API is unreachable.")
+
     try:
         sw_ban = sw.get_ban(int(user_id))
     except AttributeError:
@@ -423,14 +446,11 @@ def check_and_ban(update, user_id, should_message=True):
         update.effective_chat.kick_member(user_id)
         if should_message:
             update.effective_message.reply_text(
-                f"<b>Alert</b>: this user is globally banned.\n"
-                f"<code>*bans them from here*</code>.\n"
-                f"<b>Appeal chat</b>: {SPAMWATCH_SUPPORT_CHAT}\n"
-                f"<b>User ID</b>: <code>{sw_ban.id}</code>\n"
-                f"<b>Ban Reason</b>: <code>{html.escape(sw_ban.reason)}</code>",
+                f"This person has been detected as a spammer by @SpamWatch and has been removed!\nReason: <code>{sw_ban.reason}</code>",
                 parse_mode=ParseMode.HTML,
             )
         return
+
 
     if sql.is_user_gbanned(user_id):
         update.effective_chat.kick_member(user_id)
@@ -540,11 +560,15 @@ Anti-Spam, used by bot devs to ban spammers across all groups. This helps protec
 you and your groups by removing spam flooders as quickly as possible.
 *Note:* Users can appeal gbans or report spammers at @{SUPPORT_CHAT}
 
-This also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
+Mizuhara also integrates @Spamwatch and @Intellivoid's SpamProtectionBot API to remove Spammers as much as possible from your chatroom!
 *What is SpamWatch?*
 SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters[.](https://telegra.ph/file/f584b643c6f4be0b1de53.jpg)
 Constantly help banning spammers off from your group automatically So, you wont have to worry about spammers storming your group.
 *Note:* Users can appeal spamwatch bans at @SpamwatchSupport
+
+*What is Spam protection?*
+SpamProtection is the new AI antispam service which makes sure that your chat is free of spambots, scammers, and pedophiles.
+Uses @Intellivoid's Coffeehouse Artificial Engine. Every ban is checked by real trusty people before being finalized.
 """
 
 GBAN_HANDLER = CommandHandler("gban", gban)
@@ -560,7 +584,7 @@ dispatcher.add_handler(UNGBAN_HANDLER)
 dispatcher.add_handler(GBAN_LIST)
 dispatcher.add_handler(GBAN_STATUS)
 
-__mod_name__ = "Global Bans"
+__mod_name__ = "AntiSpam"
 __handlers__ = [GBAN_HANDLER, UNGBAN_HANDLER, GBAN_LIST, GBAN_STATUS]
 
 if STRICT_GBAN:  # enforce GBANS if this is set

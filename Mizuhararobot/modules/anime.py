@@ -740,14 +740,23 @@ def kayo(update: Update, context: CallbackContext):
     site_search(update, context, "kayo")
 
 
+@run_async
+def Animepahe(update: Update, context: CallbackContext):
+    site_search(update, context, "pahe")
+
+
 __help__ = """
 Get information about anime, manga or characters from [AniList](anilist.co).
 *Available commands:*
- • /anime <anime>: returns information about the anime.
- • /character <character>: returns information about the character.
- • /manga <manga>: returns information about the manga.
+ • /anime <anime>: returns information about the anime from Anilist.
+ • /sanime <anime>: return information about the anime from MyAnimeList.
+ • /character <character>: returns information about the character from Anilist.
+ • /scharacter <character>: returns information about the character from MyAnimeList.
+ • /manga <manga>: returns information about the manga from Anilist.
+ • /smanga <manga>: returns information about the manga from MyAnimeList.
  • /user <user>: returns information about a MyAnimeList user.
- • /upcoming: returns a list of new anime in the upcoming seasons.
+ • /upcoming: returns a list of new anime in the upcoming seasons from Anilist.
+ • /supcoming: returns a list of new anime in the upcoming seasons from MyAnimeList.
  • /airing <anime>: returns anime airing info.
  • /watchlist: to get your saved watchlist.
  • /mangalist: to get your saved manga read list.

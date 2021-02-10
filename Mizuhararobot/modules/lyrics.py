@@ -34,6 +34,10 @@ def lyrics(bot: Bot, update: Update, args):
                 caption="Message length exceeded max limit! Sending as a text file.")
         else:
             msg.reply_text(reply)
+
+LYRICS_HANDLER = DisableAbleCommandHandler("anime", anime)
+
+.add
                 
         
         

@@ -715,24 +715,6 @@ def site_search(update: Update, context: CallbackContext, site: str):
             post_name = html.escape(entry.text.strip())
             result += f"• <a href='{post_link}'>{post_name}</a>\n"
 
-     elif site == "Animepahe":
-        search_url = f"https://animepahe.com/?s={search_query}"
-        html_text = requests.get(search_url).text
-        soup = bs4.BeautifulSoup(html_text, "html.parser")
-        search_result = soup.find_all("h2", {"class": "title"})
-
-        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimePahe</code>: \n"
-        for entry in search_result:
-
-            if entry.text.strip() == "Nothing Found":
-                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimePahe</code>"
-                more_results = False
-                break
-
-            post_link = entry.a["href"]
-            post_name = html.escape(entry.text.strip())
-            result += f"• <a href='{post_link}'>{post_name}</a>\n"
-
     buttons = [[InlineKeyboardButton("See all results", url=search_url)]]
 
     if more_results:
@@ -798,7 +780,6 @@ BUTTON_HANDLER = CallbackQueryHandler(button, pattern='anime_.*')
 ANIME_STUFFS_HANDLER = CallbackQueryHandler(animestuffs, pattern='xanime_.*')
 KAIZOKU_SEARCH_HANDLER = DisableAbleCommandHandler("kaizoku", kaizoku)
 KAYO_SEARCH_HANDLER = DisableAbleCommandHandler("kayo", kayo)
-PAHE_SEARCH_HANDLER = DisableAbleCommandHandler("pahe", pahe)
 
 dispatcher.add_handler(BUTTON_HANDLER)
 dispatcher.add_handler(ANIME_STUFFS_HANDLER)
@@ -816,6 +797,5 @@ dispatcher.add_handler(REMOVE_MANGA_CHAR_HANDLER)
 dispatcher.add_handler(REMOVE_WATCHLIST_HANDLER)
 dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
 dispatcher.add_handler(KAYO_SEARCH_HANDLER)
-dispatcher.add_handler(PAHE_SEARCH_HANDLER)
 
 __mod_name__ = "Anime"

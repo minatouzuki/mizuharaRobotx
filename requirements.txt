@@ -36,6 +36,7 @@ cachetools
 youtube-dl
 instantmusic
 pytz
+tswift
 pytube
 youtube-search-python
 PyLyrics

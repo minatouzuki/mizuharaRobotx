@@ -37,7 +37,7 @@ def lyrics(bot: Bot, update: Update, args):
 
 LYRICS_HANDLER = DisableAbleCommandHandler("anime", anime)
 
-.add
+dispatcher.add_handler(LYRICS_HANDLER)
                 
         
         

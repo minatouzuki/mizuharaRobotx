@@ -19,7 +19,7 @@ News channel as at [Chizuru updates](https://t.me/chizuruupdates)
  - last, we don't support fork... So asking support for your fork in our support chat will be ignored.
  
  
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/minatouzuki/Mizuhararobot.git) 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/minatouzuki/Mizuhararobotx.git) 
 
 <details>
   <summary>Steps to deploy on Heroku !! </summary>

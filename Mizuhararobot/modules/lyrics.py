@@ -3,7 +3,7 @@
 from tswift import Song
 
 from telegram import Bot, Update, Message, Chat
-from telegram.ext import run_async
+from telegram.ext import CallbackContext, run_async
 
 from Mizuhararobot import dispatcher
 from Mizuhararobot.modules.disable import DisableAbleCommandHandler

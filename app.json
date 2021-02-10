@@ -2,7 +2,7 @@
     "name": "Mizuhararobot",
     "description": "An Anime themed Telegram group management bot.",
     "keywords": ["telegram", "anime", "group", "manager", "Saitama"],
-    "repository": "https://github.com/AnimeKaizoku/Mizuhararobot",
+    "repository": "https://github.com/minatouzuki/Mizuhararobot",
     "addons": [{"options": {"version": "12"}, "plan": "heroku-postgresql"}],
     "env": {
         "TOKEN": {

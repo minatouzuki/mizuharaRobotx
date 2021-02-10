@@ -672,7 +672,7 @@ Stickers made easy with stickers module!
  • `/getsticker`: Reply to a sticker to me to upload its raw PNG file.
  • `/addfav or /afv <custom name>`: Reply to a sticker to add it into your favorite pack list.
  • `/myfav or /mfv`: Get list of your favorite packs.
- • `/removefav or /rfv <custom name>|: Reply to a sticker to remove it into your favorite pack list.
+ • `/removefav or /rfv` <custom name>|: Reply to a sticker to remove it into your favorite pack list.
 *Example:* `/addfav mizuhara`
 """
 

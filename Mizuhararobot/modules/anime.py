@@ -715,7 +715,7 @@ def site_search(update: Update, context: CallbackContext, site: str):
             post_name = html.escape(entry.text.strip())
             result += f"• <a href='{post_link}'>{post_name}</a>\n"
 
-     if site == "pahe":
+     elif site == "Animepahe":
         search_url = f"https://animepahe.com/?s={search_query}"
         html_text = requests.get(search_url).text
         soup = bs4.BeautifulSoup(html_text, "html.parser")
@@ -759,7 +759,7 @@ def kayo(update: Update, context: CallbackContext):
 
 
 @run_async
-def pahe(update: Update, context: CallbackContext):
+def Animepahe(update: Update, context: CallbackContext):
     site_search(update, context, "pahe")
 
 

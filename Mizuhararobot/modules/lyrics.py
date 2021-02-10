@@ -7,7 +7,7 @@ from telegram.ext import run_async
 
 from Mizuhararobot import dispatcher
 from Mizuhararobot.modules.disable import DisableAbleCommandHandler
-from mizuhararobot.modules.helper_funcs.alternate import typing_action
+from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 
 @run_async

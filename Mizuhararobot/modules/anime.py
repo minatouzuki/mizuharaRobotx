@@ -798,6 +798,7 @@ BUTTON_HANDLER = CallbackQueryHandler(button, pattern='anime_.*')
 ANIME_STUFFS_HANDLER = CallbackQueryHandler(animestuffs, pattern='xanime_.*')
 KAIZOKU_SEARCH_HANDLER = DisableAbleCommandHandler("kaizoku", kaizoku)
 KAYO_SEARCH_HANDLER = DisableAbleCommandHandler("kayo", kayo)
+PAHE_SEARCH_HANDLER = DisableAbleCommandHandler("pahe", pahe)
 
 dispatcher.add_handler(BUTTON_HANDLER)
 dispatcher.add_handler(ANIME_STUFFS_HANDLER)
@@ -815,5 +816,6 @@ dispatcher.add_handler(REMOVE_MANGA_CHAR_HANDLER)
 dispatcher.add_handler(REMOVE_WATCHLIST_HANDLER)
 dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
 dispatcher.add_handler(KAYO_SEARCH_HANDLER)
+dispatcher.add_handler(PAHE_SEARCH_HANDLER)
 
 __mod_name__ = "Anime"

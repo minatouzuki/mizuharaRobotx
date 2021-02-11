@@ -3,6 +3,8 @@ import re
 from typing import Optional, List
 from sys import argv
 from telegram.ext import CallbackContext
+import requests
+from pyrogram import idle, Client 
 from telegram import Message, Chat, User ,Update
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler

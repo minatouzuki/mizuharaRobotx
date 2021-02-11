@@ -20,6 +20,8 @@ log.info("Mizuhara is now active. | An Rental Association Project. | Licensed un
 
 log.info("Project maintained by: github.com/minatouzuki (t.me/minatouzuki)")
 
+LOGGER = logging.getLogger(__name__)
+
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     LOGGER.error(

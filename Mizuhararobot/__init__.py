@@ -20,7 +20,6 @@ log.info("Mizuhara is now active. | An Rental Association Project. | Licensed un
 
 log.info("Project maintained by: github.com/minatouzuki (t.me/minatouzuki)")
 
-LOGGER = logging.getLogger(__name__)
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
@@ -181,7 +180,7 @@ DEV_USERS.add(OWNER_ID)
 
 if not SPAMWATCH_API:
     sw = None
-    LOGGER.warning("SpamWatch API key missing! recheck your config.")
+    log.warning("SpamWatch API key missing! recheck your config.")
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
@@ -189,7 +188,7 @@ else:
 REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
 try:
     REDIS.ping()
-    LOGGER.info("Your redis server is now alive!")
+    log.info("Your redis server is now alive!")
 except BaseException:
     raise Exception("Your redis server is not alive, please check again.")
 

@@ -41,3 +41,4 @@ pytube
 youtube-search-python
 PyLyrics
 Intellivoid-SPB
+rich

@@ -8,17 +8,17 @@ from pyrogram import Client, errors
 
 import telegram.ext as tg
 from telethon import TelegramClient
-
+from rich.logging import RichHandler
 StartTime = time.time()
 
 # enable logging
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
-    level=logging.INFO,
-)
+FORMAT = "%(message)s"
+logging.basicConfig(handlers=[RichHandler()], level=logging.INFO, format=FORMAT, datefmt="[%X]")
+log = logging.getLogger("rich")
 
-LOGGER = logging.getLogger(__name__)
+log.info("Mizuhara is now active. | An Rental Association Project. | Licensed under GPLv3.")
+
+log.info("Project maintained by: github.com/minatouzuki (t.me/minatouzuki)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:

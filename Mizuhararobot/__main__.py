@@ -10,7 +10,7 @@ from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
 from Mizuhararobot import (dispatcher, updater, TOKEN, OWNER_ID, WEBHOOK,SUPPORT_CHAT,
-                           CERT_PATH, PORT, URL, LOGGER, BLACKLIST_CHATS, WHITELIST_CHATS,
+                           CERT_PATH, PORT, URL, log, BLACKLIST_CHATS, WHITELIST_CHATS,
                            pbot,telethn )
 
 # needed to dynamically load modules
@@ -180,7 +180,7 @@ def start(update, context):
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
     # Log the error before we do anything else, so we can see it even if something breaks.
-    LOGGER.error(msg="Exception while handling an update:", exc_info=context.error)
+    log.error(msg="Exception while handling an update:", exc_info=context.error)
 
     # traceback.format_exception returns the usual python message about an exception, but as a
     # list of strings rather than a single string, so we have to join them together.
@@ -270,7 +270,7 @@ def help_button(update, context):
             pass
         else:
             query.message.edit_text(excp.message)
-            LOGGER.exception("Exception in help buttons. %s", str(query.data))
+            log.exception("Exception in help buttons. %s", str(query.data))
 
 
 @run_async
@@ -454,7 +454,7 @@ def settings_button(update: Update, context: CallbackContext):
         elif excp.message == "Message can't be deleted":
             pass
         else:
-            LOGGER.exception("Exception in settings buttons. %s",
+            log.exception("Exception in settings buttons. %s",
                              str(query.data))
 
 
@@ -529,11 +529,11 @@ def migrate_chats(update, context):
     else:
         return
 
-    LOGGER.info("Migrating from %s, to %s", str(old_chat), str(new_chat))
+    log.info("Migrating from %s, to %s", str(old_chat), str(new_chat))
     for mod in MIGRATEABLE:
         mod.__migrate__(old_chat, new_chat)
 
-    LOGGER.info("Successfully migrated!")
+    log.info("Successfully migrated!")
     raise DispatcherHandlerStop
 
 
@@ -604,7 +604,7 @@ def main():
     dispatcher.add_error_handler(error_handler)
 
     if WEBHOOK:
-        LOGGER.info("Using webhooks.")
+        log.info("Using webhooks.")
         updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
 
         if CERT_PATH:
@@ -614,7 +614,7 @@ def main():
             
 
     else:
-        LOGGER.info("Using long polling.")
+        log.info("Using long polling.")
         updater.start_polling(timeout=15, read_latency=4)
         
     if len(argv) not in (1, 3, 4):
@@ -627,7 +627,7 @@ def main():
 
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded modules: ", str(ALL_MODULES))
+    log.info("Successfully loaded modules: ", str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()

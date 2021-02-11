@@ -17,6 +17,7 @@ from Mizuhararobot import (
     WOLVES,
     sw,
     dispatcher,
+    log
 )
 from Mizuhararobot.modules.helper_funcs.chat_status import (
     is_user_admin,

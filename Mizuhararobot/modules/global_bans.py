@@ -17,6 +17,7 @@ from Mizuhararobot import (
     WOLVES,
     sw,
     dispatcher,
+    LOGGER
 )
 from Mizuhararobot.modules.helper_funcs.chat_status import (
     is_user_admin,
@@ -435,7 +436,7 @@ def check_and_ban(update, user_id, should_message=True):
                 parse_mode=ParseMode.HTML,
             )
     except HostDownError:
-        log.warning("Spam Protection API is unreachable.")
+        LOGGER.warning("Spam Protection API is unreachable.")
 
     try:
         sw_ban = sw.get_ban(int(user_id))

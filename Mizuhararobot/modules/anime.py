@@ -194,7 +194,7 @@ def anime(update, context):
         search = search[1]
     variables = {'search': search}
     json = requests.post(url, json={'query': anime_query, 'variables': variables}).json()
-        ['data']['Media', None]
+        ['data'].get['Media', None]
     if 'errors' in json.keys():
         update.effective_message.reply_text('Anime not found')
         return

@@ -5,7 +5,7 @@ from sys import argv
 from telegram.ext import CallbackContext
 from telegram import Message, Chat, User ,Update
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
+from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler, CallbackContext
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
@@ -166,7 +166,7 @@ def start(update, context):
                     [
                         InlineKeyboardButton(
                             text="help",
-                            url="https://t.me/Chizurumanagementbot?start=help")
+                            callback_data="help_back")
                     ]]))
 
 

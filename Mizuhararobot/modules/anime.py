@@ -676,8 +676,8 @@ def site_search(update: Update, context: CallbackContext, site: str):
     search_query = extract_arg(message)
     more_results = True
 
-     if not search_query:
-         message.reply_text("Give something to search")
+    if not search_query:
+        message.reply_text("Give something to search")
          return
 
     if site == "kaizoku":

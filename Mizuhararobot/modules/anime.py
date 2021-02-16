@@ -678,7 +678,7 @@ def site_search(update: Update, context: CallbackContext, site: str):
 
     if not search_query:
         message.reply_text("Give something to search")
-         return
+        return
 
     if site == "kaizoku":
         search_url = f"https://animekaizoku.com/?s={search_query}"

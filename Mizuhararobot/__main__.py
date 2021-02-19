@@ -283,7 +283,7 @@ def get_help(update, context):
     if chat.type != chat.PRIVATE:
 
         update.effective_message.reply_text(
-            "Click the button below to get help manu in your pm.",
+            "Click the button below to get help menu in your pm.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [

@@ -4,7 +4,7 @@ redis
 lxml
 beautifulsoup4
 requests>=2.20
-sqlalchemy
+sqlalchemy==1.3.20
 pyrogram>=1.0.7
 tgCrypto>=1.2.2
 python-telegram-bot==12.8

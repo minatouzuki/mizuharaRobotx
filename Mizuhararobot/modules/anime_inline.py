@@ -37,7 +37,7 @@ async def inline_query_handler(client, query):
                                          results=[
                                              InlineQueryResultPhoto(
                                                  caption="Hey! I have an inline mode, click the buttons below to start your exploration!",
-                                                 photo_url="https://telegra.ph/file/5536473a204e5191b80f8.png",
+                                                 photo_url="https://telegra.ph/file/9a9517a5bd2ebade4d851.jpg",
                                                  parse_mode="html",
                                                  title="Need Help?",
                                                  description="Click Here!",
@@ -52,7 +52,7 @@ async def inline_query_handler(client, query):
                                                          InlineKeyboardButton(
                                                              "Airing", switch_inline_query_current_chat="airing "),
                                                          InlineKeyboardButton(
-                                                             "Character", switch_inline_query_current_chat="char ")
+                                                             "Character", switch_inline_query_current_chat="character ")
                                                      ],
                                                          [
                                                          InlineKeyboardButton(

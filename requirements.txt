@@ -37,6 +37,7 @@ youtube-dl
 instantmusic
 pytz
 tswift
+git+https://github.com/intellivoid/CoffeeHouse-Python-API-Wrapper.git
 pytube
 youtube-search-python
 PyLyrics

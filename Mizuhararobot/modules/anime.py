@@ -465,29 +465,20 @@ async def ganime(c: Client, update: Update):
 
 __help__ = """
 
-Get information about anime, manga or characters from [AniList](anilist.co).
-
-──「 **Anime** 」──
--> `/anime`<anime>
-Returns information about the anime
--> `/upcoming`
-Returns a list of new animes in a upcoming seasons
--> `/airing`<anime> 
-Returns anime airing info
--> `/character`<character>
-Returns information about the character 
--> `/kayo`<anime> 
-Searches anime on Animekayo.com
--> `/kaizoku`<anime>
-Searches anime on Animekaizoku.com
--> `/gogo`<anime> 
-Searches anime on Gogoanime.so
-
-
-──「 **Manga** 」──
--> `/manga` <manga>
-Returns information about the manga
-
-"""
+Get information about anime, manga or characters from [AniList](anilist.co) and [MyAnimeList](myanimelist.net).
+*Available commands:*
+ ~ ´/anime´ <anime>: returns information about the anime from Anilist.
+ ~ ´/sanime´ <anime>: return information about the anime from MyAnimeList.
+ ~ ´/character´ <character>: returns information about the character from Anilist.
+ ~ ´/scharacter´ <character>: returns information about the character from MyAnimeList.
+ ~ ´/manga´ <manga>: returns information about the manga from Anilist.
+ ~ ´/smanga´ <manga>: returns information about the manga from MyAnimeList.
+ ~ ´/upcoming´: returns a list of new anime in the upcoming seasons from Anilist.
+ ~ ´/supcoming´: returns a list of new anime in the upcoming seasons from MyAnimeList.
+ ~ ´/airing´ <anime>: returns anime airing info.
+ ~ ´/kaizoku´ <anime>: search an anime on animekaizoku.com
+ ~ ´/gogo´ <anime>: search an anime on gogoanime.so
+ ~ ´/kayo´ <anime>: search an anime on animekayo.com
+ """
 
 __mod_name__ = "Anime"

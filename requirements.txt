@@ -36,6 +36,7 @@ cachetools
 youtube-dl
 instantmusic
 pytz
+git+https://github.com/intellivoid/CoffeeHouse-Python-API-Wrapper.git
 tswift
 pytube
 youtube-search-python

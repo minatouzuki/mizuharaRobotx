@@ -28,6 +28,7 @@ class AioHttp:
             async with session.get(link) as resp:
                 return await resp.read()
 
+#imported from @LordHitsuki_BOT
 
 @pbot.on_inline_query()
 async def inline_query_handler(client, query):
@@ -56,7 +57,7 @@ async def inline_query_handler(client, query):
                                                      ],
                                                          [
                                                          InlineKeyboardButton(
-                                                             text="Help", url="https://t.me/MizuharaBetaBot?start=help")
+                                                             text="Help", url="https://t.me/Chizurumanagementbot?start=help")
                                                      ]]
                                                  )
                                              ),

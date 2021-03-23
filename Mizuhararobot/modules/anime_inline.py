@@ -224,7 +224,7 @@ async def inline_query_handler(client, query):
                                          cache_time=0,
                                          is_gallery=False
                                          )
-    elif len(txt) != 0 and txt[0] == "char":
+    elif len(txt) != 0 and txt[0] == "character":
         if len(txt) == 1:
             await client.answer_inline_query(query.id,
                                              results=answers,

@@ -2416,39 +2416,39 @@ You can even designate admin federations, so your trusted admin can ban all the 
 
 *Only Federation Owner:*
 
- - /newfed <fedname>: Create a new Federation with the name given. Users are only allowed to have one Federation. This method can also be used to rename the Federation. (max. 64 characters)
- - /delfed: Delete your Federation, and any information related to it. Will not cancel blocked users.
- - /fpromote <user>: Promote Users to give fed admin. Fed owner only.
- - /fdemote <user>: Drops the User from the admin Federation to a normal User. Fed owner only.
- - /subfed <Fed ID>: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed.
- - /unsubfed <Fed ID>: Unsubscribes to a given fed ID
- - /fbroadcast <message>: Broadcasts a messages to all groups who have joined your fed.
- - /importfbans: Reply to the Federation backup message file to import the banned list to the Federation now.
- - /setfedlog <Fed ID>: Sets the group as fed log report base for the federation 
- - /unsetfedlog <Fed ID>: Removes the group as a fed log report base for the federation 
+ ~ /newfed <fedname>: Create a new Federation with the name given. Users are only allowed to have one Federation. This method can also be used to rename the Federation. (max. 64 characters)
+ ~ /delfed: Delete your Federation, and any information related to it. Will not cancel blocked users.
+ ~ /fpromote <user>: Promote Users to give fed admin. Fed owner only.
+ ~ /fdemote <user>: Drops the User from the admin Federation to a normal User. Fed owner only.
+ ~ /subfed <Fed ID>: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed.
+ ~ /unsubfed <Fed ID>: Unsubscribes to a given fed ID
+ ~ /fbroadcast <message>: Broadcasts a messages to all groups who have joined your fed.
+ ~ /importfbans: Reply to the Federation backup message file to import the banned list to the Federation now.
+ ~ /setfedlog <Fed ID>: Sets the group as fed log report base for the federation 
+ ~ /unsetfedlog <Fed ID>: Removes the group as a fed log report base for the federation 
 
 *Only Chat Owner:*
 
- - /joinfed (Fed ID): Joins current chat to provided Federation
- - /leavefed (Fed ID): Leaves the federation given in the current chat
+ ~ /joinfed (Fed ID): Joins current chat to provided Federation
+ ~ /leavefed (Fed ID): Leaves the federation given in the current chat
 
 *Only Fed admins and owners:*
 
- - /fedadmins: Shows the list of admins in a federation.
- - /fbanlist: Displays all users who are victimized at the federation at this time.
- - /fban <user> <reason>: Bans the user from fed
- - /unfban <user> <reason>: Unbans the user from fed
- - /fedchats: Get all chats that are connected in the federation
- - /chatfed: See the federation in the current chat
- - /setfrules <rules>: Arranges the rules for a federation 
- - /fedinfo <Fed ID>: Shows the information about the specified federation 
- - /myfeds: Shows the list of feds you created
+ ~ /fedadmins: Shows the list of admins in a federation.
+ ~ /fbanlist: Displays all users who are victimized at the federation at this time.
+ ~ /fban <user> <reason>: Bans the user from fed
+ ~ /unfban <user> <reason>: Unbans the user from fed
+ ~ /fedchats: Get all chats that are connected in the federation
+ ~ /chatfed: See the federation in the current chat
+ ~ /setfrules <rules>: Arranges the rules for a federation 
+ ~ /fedinfo <Fed ID>: Shows the information about the specified federation 
+ ~ /myfeds: Shows the list of feds you created
 
 *Available for all users:*
 
- - /fbanstat: Shows if you or the user you replying to or their username is fbanned somewhere or not.
- - /frules: See federation regulations 
- - /fednotif <on/off>: Federation settings not in PM when they are fbanned or unfbanned
+ ~ /fbanstat: Shows if you or the user you replying to or their username is fbanned somewhere or not.
+ ~ /frules: See federation regulations 
+ ~ /fednotif <on/off>: Federation settings not in PM when they are fbanned or unfbanned
 
 """
 

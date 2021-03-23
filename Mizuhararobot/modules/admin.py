@@ -468,16 +468,16 @@ def adminlist(update, context):
 
 
 __help__ = """
- • `/admins`*:* list of admins in the chat
+ ~ `/admins`*:* list of admins in the chat
 
 *Admins only:*
- • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- • `/unpin`*:* unpins the currently pinned message
- • `/invitelink`*:* gets the invitelink of chat
- • `/promote`*:* promotes the user replied to
- • `/demote`*:* demotes the user replied to
- • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
- • `/admincache`*:* force refresh the admins list
+ ~ `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
+ ~ `/unpin`*:* unpins the currently pinned message
+ ~ `/invitelink`*:* gets the invitelink of chat
+ ~ `/promote`*:* promotes the user replied to
+ ~ `/demote`*:* demotes the user replied to
+ ~ `/title <title here>`*:* sets a custom title for an admin that the bot promoted
+ ~ `/admincache`*:* force refresh the admins list
 
 Example:
 Sometimes, you promote or demote an admin manually, and Mizuhara doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.

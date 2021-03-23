@@ -467,18 +467,18 @@ __help__ = """
 
 Get information about anime, manga or characters from [AniList](anilist.co) and [MyAnimeList](myanimelist.net).
 *Available commands:*
- ~ ´/anime´ <anime>: returns information about the anime from Anilist.
- ~ ´/sanime´ <anime>: return information about the anime from MyAnimeList.
- ~ ´/character´ <character>: returns information about the character from Anilist.
- ~ ´/scharacter´ <character>: returns information about the character from MyAnimeList.
- ~ ´/manga´ <manga>: returns information about the manga from Anilist.
- ~ ´/smanga´ <manga>: returns information about the manga from MyAnimeList.
- ~ ´/upcoming´: returns a list of new anime in the upcoming seasons from Anilist.
- ~ ´/supcoming´: returns a list of new anime in the upcoming seasons from MyAnimeList.
- ~ ´/airing´ <anime>: returns anime airing info.
- ~ ´/kaizoku´ <anime>: search an anime on animekaizoku.com
- ~ ´/gogo´ <anime>: search an anime on gogoanime.so
- ~ ´/kayo´ <anime>: search an anime on animekayo.com
+ ~ `/anime` <anime>: returns information about the anime from Anilist.
+ ~ `/sanime` <anime>: return information about the anime from MyAnimeList.
+ ~ `/character` <character>: returns information about the character from Anilist.
+ ~ `/scharacter` <character>: returns information about the character from MyAnimeList.
+ ~ `/manga` <manga>: returns information about the manga from Anilist.
+ ~ `/smanga` <manga>: returns information about the manga from MyAnimeList.
+ ~ `/upcoming`: returns a list of new anime in the upcoming seasons from Anilist.
+ ~ `/supcoming`: returns a list of new anime in the upcoming seasons from MyAnimeList.
+ ~ `/airing` <anime>: returns anime airing info.
+ ~ `/kaizoku` <anime>: search an anime on animekaizoku.com
+ ~ `/gogo` <anime>: search an anime on gogoanime.so
+ ~ `/kayo` <anime>: search an anime on animekayo.com
  """
 
 __mod_name__ = "Anime"

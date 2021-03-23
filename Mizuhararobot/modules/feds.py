@@ -2418,7 +2418,7 @@ You can even designate admin federations, so your trusted admin can ban all the 
 
  ~ /newfed <fedname>: Create a new Federation with the name given. Users are only allowed to have one Federation. This method can also be used to rename the Federation. (max. 64 characters)
  ~ /delfed: Delete your Federation, and any information related to it. Will not cancel blocked users.
- ~ `/fpromote <user>: Promote Users to give fed admin. Fed owner only.
+ ~ /fpromote <user>: Promote Users to give fed admin. Fed owner only.
  ~ /fdemote <user>: Drops the User from the admin Federation to a normal User. Fed owner only.
  ~ /subfed <Fed ID>: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed.
  ~ /unsubfed <Fed ID>: Unsubscribes to a given fed ID

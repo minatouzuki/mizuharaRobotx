@@ -161,7 +161,7 @@ async def run_cmd(c: Client, m: Message):
 @pbot.on_message(filters.command("restart") & filters.user(DRAGONS))
 async def restart(c: Client, m: Message):
     await m.reply_text("Restarting...")
-    args = [sys.executable, "-m", "Mizuharrobot"]
+    args = [sys.executable, "-m", "Mizuhararobot"]
     os.execl(sys.executable, *args)
 
 

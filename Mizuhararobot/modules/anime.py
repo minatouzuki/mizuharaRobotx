@@ -317,7 +317,6 @@ async def upcoming(c: Client, m: Message):
 
 
 __help__ = """
-
 Get information about anime, manga or characters from [AniList](anilist.co) and [MyAnimeList](myanimelist.net).
 *Available commands:*
  ~ `/anime` <anime>: returns information about the anime from Anilist.

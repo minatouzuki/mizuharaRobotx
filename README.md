@@ -55,15 +55,21 @@ An example `config.py` file could be:
 from Mizuhararobot.sample_config import Config
 
 class Development(Config):
+    # REQUIRED
+    # Login to https://my.telegram.org and fill in these slots with the details given by it
+    API_ID = 123456  # integer value, dont use ""
+    API_HASH = "awoo"
+    
     OWNER_ID = 254318997  # your telegram ID
     OWNER_USERNAME = "SonOfLars"  # your telegram username
-    API_KEY = "your bot api key"  # your api key, as provided by the @botfather
+    TOKEN = "your bot token"  # your bot token, as provided by the @botfather
     SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost:5432/database'  # sample db credentials
     JOIN_LOGGER = '-1234567890' # some group chat that your bot is a member of
     USE_JOIN_LOGGER = True
     DRAGONS = [18673980, 83489514]  # List of id's for users which have sudo access to the bot.
     LOAD = []
     NO_LOAD = ['translation']
+    REDIS_URL = '' # redis://user:pass@host:port
 ```
 
 If you can't have a config.py file (EG on Heroku), it is also possible to use environment variables.

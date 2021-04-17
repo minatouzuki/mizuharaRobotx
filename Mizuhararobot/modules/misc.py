@@ -55,7 +55,7 @@ def markdown_help_sender(update: Update):
         "Try forwarding the following message to me, and you'll see, and Use #test!"
     )
     update.effective_message.reply_text(
-        "/save test This is a markdown test. _italics_, *bold*, code, "
+        "/save test This is a markdown test. _italics_, *bold*, `code`, "
         "[URL](example.com) [button](buttonurl:github.com) "
         "[button2](buttonurl://google.com:same)"
     )

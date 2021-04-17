@@ -330,7 +330,6 @@ Get information about anime, manga or characters from [AniList](anilist.co) and 
  ~ `/supcoming`: returns a list of new anime in the upcoming seasons from MyAnimeList.
  ~ `/airing` <anime>: returns anime airing info.
  ~ `/kaizoku` <anime>: search an anime on animekaizoku.com
- ~ `/gogo` <anime>: search an anime on gogoanime.so
  ~ `/kayo` <anime>: search an anime on animekayo.com
  """
 

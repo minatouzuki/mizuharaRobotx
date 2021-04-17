@@ -373,81 +373,6 @@ async def site_search(client: Client, m: Message, site: str):
             result, parse_mode="html", disable_web_page_preview=True)
 
 
-async def site_search(client: Client, m: Message, site: str):
-    args = m.text.split(' ', 1)
-    more_results = True
-
-    try:
-        search_query = args[1]
-    except IndexError:
-        await m.reply_text("Give something to search")
-        return
-
-    if site == "kaizoku":
-        search_url = f"https://animekaizoku.com/?s={search_query}"
-        html_text = requests.get(search_url).text
-        soup = bs4.BeautifulSoup(html_text, "html.parser")
-        search_result = soup.find_all("h2", {'class': "post-title"})
-
-        if search_result:
-            result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>: \n"
-            for entry in search_result:
-                post_link = entry.a['href']
-                post_name = html.escape(entry.text)
-                result += f"• <a href='{post_link}'>{post_name}</a>\n"
-        else:
-            more_results = False
-            result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"
-
-    elif site == "kayo":
-        search_url = f"https://animekayo.com/?s={search_query}"
-        html_text = requests.get(search_url).text
-        soup = bs4.BeautifulSoup(html_text, "html.parser")
-        search_result = soup.find_all("h2", {'class': "title"})
-
-        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKayo</code>: \n"
-        for entry in search_result:
-
-            if entry.text.strip() == "Nothing Found":
-                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKayo</code>"
-                more_results = False
-                break
-
-            post_link = entry.a['href']
-            post_name = html.escape(entry.text.strip())
-            result += f"• <a href='{post_link}'>{post_name}</a>\n"
-
-    elif site == "ganime":
-        search_url = f"https://gogoanime.so//search.html?keyword={search_query}"
-        html_text = requests.get(search_url).text
-        soup = bs4.BeautifulSoup(html_text, "html.parser")
-        search_result = soup.find_all("h2", {'class': "title"})
-
-        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>gogoanime</code>: \n"
-        for entry in search_result:
-
-            if entry.text.strip() == "Nothing Found":
-                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>gogoanime</code>"
-                more_results = False
-                break
-
-            post_link = entry.a['href']
-            post_name = html.escape(entry.text.strip())
-            result += f"• <a href='{post_link}'>{post_name}</a>\n"
-
-    buttons = [[InlineKeyboardButton("See all results", url=search_url)]]
-
-    if more_results:
-        await m.reply_text(
-            result,
-            parse_mode="html",
-            reply_markup=InlineKeyboardMarkup(buttons),
-            disable_web_page_preview=True)
-    else:
-        await m.reply_text(
-            result, parse_mode="html", disable_web_page_preview=True)
-
-
 @pbot.on_message(filters.command('kaizoku'))
 async def kaizoku(c: Client, update: Update):
     await site_search(c, update, "kaizoku")
@@ -456,11 +381,6 @@ async def kaizoku(c: Client, update: Update):
 @pbot.on_message(filters.command('kayo'))
 async def kayo(c: Client, update: Update):
     await site_search(c, update, "kayo")
-
-
-@pbot.on_message(filters.command('gogo'))
-async def ganime(c: Client, update: Update):
-    await site_search(c, update, "ganime")
 
 
 __help__ = """

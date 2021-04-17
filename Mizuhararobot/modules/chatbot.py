@@ -136,7 +136,7 @@ def list_chatbot_chats(update: Update, context: CallbackContext):
 
 
 __help__ = f"""
-Chatbot utilizes the CoffeeHouse API and allows mizuhara to talk and provides a more interactive group chat experience.
+Chatbot utilizes the CoffeeHouse API and allows Mizuhara to talk and provides a more interactive group chat experience.
 
 *Commands:* 
 *Admins only:*

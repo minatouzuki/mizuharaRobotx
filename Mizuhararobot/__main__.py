@@ -23,7 +23,7 @@ from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am chizuru ichinose a group manager bot.Rent me for your group if you want😃😃.
+I am Chizuru Ichinose a group manager bot. Rent me for your group if you want😃😃.
 You can find my list of available commands with /help.
 """
 
@@ -33,11 +33,11 @@ BOT_IMG = "https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4"
 
 
 
-HELP_STRINGS = """
-Hello I'm  mizuhara from rent a girlfriend. Rent me for your grp to have fun there.You can have a look at the following for an idea of some of \
+HELP_STRINGS = u"""
+Hello I'm Mizuhara from Rent a Girlfriend. Rent me for your group to have fun there. You can have a look at the following for an idea of some of \
 the things I can help you with.
 
-*Main* commands available:[:.:](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
+*Main commands available:*[\u200C](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
  • /help: PM's you this message.
  • /help <module name>: PM's you info about that module.
  • /settings:
@@ -105,7 +105,7 @@ def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_message(
-        chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
+        chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard, disable_web_page_preview=True
     )
 
 
@@ -152,13 +152,13 @@ def start(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="➕️Add mizuhara to your group",
+                            text="➕️Add Mizuhara to your group",
                             url="t.me/{}?startgroup=true".format(context.bot.username))
                     ],
                     [
                         InlineKeyboardButton(
                             text="Support Chat ",
-                            url="https://t.me/chizurusupport"),
+                            url="https://t.me/{}".format(SUPPORT_CHAT)),
                         InlineKeyboardButton(
                             text="📍Updates ",
                             url="https://t.me/chizuruupdates")
@@ -166,14 +166,14 @@ def start(update, context):
                     [
                         InlineKeyboardButton(
                             text="help",
-                            url="https://t.me/Chizurumanagementbot?start=help")
+                            url="https://t.me/{}?start=help".format(context.bot.username))
                     ]]))
 
 
 
 
     else:
-        update.effective_message.reply_text("Heya, my name is mizuhara")
+        update.effective_message.reply_text("Heya, my name is Mizuhara")
 
 
 
@@ -227,6 +227,7 @@ def help_button(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                 ),
+                disable_web_page_preview=True
             )
 
         elif prev_match:
@@ -627,7 +628,7 @@ def main():
 
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded modules: ", str(ALL_MODULES))
+    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()

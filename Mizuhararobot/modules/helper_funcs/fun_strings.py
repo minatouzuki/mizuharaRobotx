@@ -425,6 +425,14 @@ NOAFK = (
     "OwO {} is here!",
 )
 
+BONK_TEMPLATES = (
+    "{user1} Sends {user2} to horny jail."
+    "{user1} Threw {user2} to horny jail."
+    "{user1} bonked the horny out of {user2}."
+    "{user1} gave infinite bonks to {user2}."
+    "{user1} took {user2} to bonk town."
+)
+
 AFK = (
     "Cya 👋 {}!",
     "Byebye {}.",

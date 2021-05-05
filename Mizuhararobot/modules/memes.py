@@ -158,12 +158,9 @@ def bonk(update, context):
         user2 = curr_user
 
     temp = random.choice(fun.BONK_TEMPLATES)
-    item = random.choice(fun.ITEMS)
-    hit = random.choice(fun.HIT)
-    throw = random.choice(fun.THROW)
 
     repl = temp.format(
-        user1=user1, user2=user2, item=item, hits=hit, throws=throw
+        user1=user1, user2=user2
     )
 
     reply_text(repl, parse_mode=ParseMode.MARKDOWN)

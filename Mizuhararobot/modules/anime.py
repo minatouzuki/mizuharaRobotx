@@ -2,6 +2,7 @@
 import requests
 import jikanpy
 import bs4
+import telegraph 
 import html
 from inspect import getfullargspec
 

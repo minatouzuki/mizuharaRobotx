@@ -4,6 +4,7 @@ import sys
 import time
 import spamwatch
 from telegraph import Telegraph
+
 from redis import StrictRedis
 from pyrogram import Client, errors
 
@@ -161,8 +162,6 @@ else:
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
-    telegraph = Telegraph()
-    telegraph.create_account(short_name="mizu")
     INFOPIC = Config.INFOPIC
 
     try:
@@ -204,6 +203,9 @@ updater = tg.Updater(
 telethn = TelegramClient("mizuhara", API_ID, API_HASH)
 pbot = Client("mizuharaPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
+
+telegraph = Telegraph()
+telegraph.create_account(short_name="mizu")
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)

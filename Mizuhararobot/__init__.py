@@ -160,6 +160,8 @@ else:
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
+    telegraph = Telegraph()
+    telegraph.create_account(short_name="mizu")
     INFOPIC = Config.INFOPIC
 
     try:

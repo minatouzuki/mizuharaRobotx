@@ -2,11 +2,10 @@
 import requests
 import jikanpy
 import bs4
-import telegraph 
 import html
 from inspect import getfullargspec
 
-from Mizuhararobot import pbot
+from Mizuhararobot import pbot, telegraph 
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Update

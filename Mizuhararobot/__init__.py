@@ -4,6 +4,8 @@ import sys
 import time
 import spamwatch
 from redis import StrictRedis
+
+from telegraph import Telegraph
 from pyrogram import Client, errors
 
 import telegram.ext as tg
@@ -201,6 +203,9 @@ updater = tg.Updater(
 telethn = TelegramClient("mizuhara", API_ID, API_HASH)
 pbot = Client("mizuharaPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
+
+telegraph = Telegraph()
+telegraph.create_account(short_name="mizu")
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)

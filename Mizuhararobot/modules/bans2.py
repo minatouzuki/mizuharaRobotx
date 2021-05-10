@@ -18,6 +18,16 @@ from Mizuhararobot import (
     TIGERS,
     WOLVES,
 )
+from Mizuhararobot.modules.helper_funcs.chat_status import (
+    bot_admin,
+    can_restrict,
+    connection_status,
+    is_user_admin,
+    is_user_ban_protected,
+    is_user_in_chat,
+    user_admin,
+    user_can_ban,
+)
 from Mizuhararobot.utils.admincheck import admin_check
 from Mizuhararobot import pbot
 

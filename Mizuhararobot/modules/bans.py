@@ -595,7 +595,6 @@ __help__ = """
  ~ `/skick <userhandle>`*:* silently kicks a user out of the group, (via handle, or reply)
 """
 
-BAN_HANDLER = CommandHandler("ban", ban)
 SBAN_HANDLER = CommandHandler("sban", sban)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
 STEMPBAN_HANDLER = CommandHandler(["stban"], stemp_ban)
@@ -605,7 +604,7 @@ UNBAN_HANDLER = CommandHandler("unban", unban)
 ROAR_HANDLER = CommandHandler("roar", selfunban)
 KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.group)
 
-dispatcher.add_handler(BAN_HANDLER)
+
 dispatcher.add_handler(SBAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)
 dispatcher.add_handler(STEMPBAN_HANDLER)
@@ -617,7 +616,6 @@ dispatcher.add_handler(KICKME_HANDLER)
 
 __mod_name__ = "Bans"
 __handlers__ = [
-    BAN_HANDLER,
     SBAN_HANDLER, 
     TEMPBAN_HANDLER,
     STEMPBAN_HANDLER, 

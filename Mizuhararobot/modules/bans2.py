@@ -42,7 +42,7 @@ async def ban_usr(client, message):
             await message.reply_text("Trying to put me against a God level disaster huh?")
             return log_message
         elif user_id in DEV_USERS:
-            await .reply_text("I can't act against our own.")
+            await message.reply_text("I can't act against our own.")
             return log_message
         elif user_id in DRAGONS:
             await message.reply_text(

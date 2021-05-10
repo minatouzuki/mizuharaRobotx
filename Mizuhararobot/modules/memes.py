@@ -23,54 +23,8 @@ def runs(update, context):
     update.effective_message.reply_text(random.choice(fun.RUN_STRINGS))
 
 
-@typing_action
-def slap(update, context):
-    args = context.args
-    msg = update.effective_message
 
-    # reply to correct message
-    reply_text = (
-        msg.reply_to_message.reply_text
-        if msg.reply_to_message
-        else msg.reply_text
-    )
 
-    # get user who sent message
-    if msg.from_user.username:
-        curr_user = "@" + escape_markdown(msg.from_user.username)
-    else:
-        curr_user = "[{}](tg://user?id={})".format(
-            msg.from_user.first_name, msg.from_user.id
-        )
-
-    user_id = extract_user(update.effective_message, args)
-    if user_id:
-        slapped_user = context.bot.get_chat(user_id)
-        user1 = curr_user
-        if slapped_user.username:
-            user2 = "@" + escape_markdown(slapped_user.username)
-        else:
-            user2 = "[{}](tg://user?id={})".format(
-                slapped_user.first_name, slapped_user.id
-            )
-
-    # if no target found, bot targets the sender
-    else:
-        user1 = "[{}](tg://user?id={})".format(
-            context.bot.first_name, context.bot.id
-        )
-        user2 = curr_user
-
-    temp = random.choice(fun.SLAP_TEMPLATES)
-    item = random.choice(fun.ITEMS)
-    hit = random.choice(fun.HIT)
-    throw = random.choice(fun.THROW)
-
-    repl = temp.format(
-        user1=user1, user2=user2, item=item, hits=hit, throws=throw
-    )
-
-    reply_text(repl, parse_mode=ParseMode.MARKDOWN)
 
 
 @typing_action
@@ -468,7 +422,6 @@ SNIPE_HANDLER = CommandHandler(
 )
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
-SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, pass_args=True)
 PUNCH_HANDLER = DisableAbleCommandHandler("punch", punch, pass_args=True)
 HUG_HANDLER = DisableAbleCommandHandler("warm", hug, pass_args=True)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
@@ -494,7 +447,6 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(SNIPE_HANDLER)
 dispatcher.add_handler(RUNS_HANDLER)
-dispatcher.add_handler(SLAP_HANDLER)
 dispatcher.add_handler(PUNCH_HANDLER)
 dispatcher.add_handler(HUG_HANDLER)
 dispatcher.add_handler(GBUN_HANDLER)

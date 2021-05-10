@@ -23,21 +23,21 @@ from Mizuhararobot.modules.helper_funcs.alternate import typing_action
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am chizuru ichinose a group manager bot.Rent me for your group if you want😃😃.
+I am Jin mori a group manager bot. Add me to your groups so that i can help you to manage your grps😃😃.
 You can find my list of available commands with /help.
 """
 
 
-BOT_IMG = "https://telegra.ph/file/eee3cb7efa205ca5b1262.mp4"
+BOT_IMG = "https://telegra.ph/file/ab98eae80722eb117083f.jpg"
 
 
 
 
 HELP_STRINGS = """
-Hello I'm  mizuhara from rent a girlfriend. Rent me for your grp to have fun there.You can have a look at the following for an idea of some of \
+Hello I'm  the jin mori from GOHS . Add me to your if you wanna have fun there.You can have a look at the following for an idea of some of \
 the things I can help you with.
 
-*Main* commands available:[:.:](https://telegra.ph/file/8fbc5858ddd7eefe2fccf.jpg)
+*Main* commands available:[:.:](https://telegra.ph/file/18f3cf3602809b0b97847.jpg)
  • /help: PM's you this message.
  • /help <module name>: PM's you info about that module.
  • /settings:
@@ -152,28 +152,33 @@ def start(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="➕️Add mizuhara to your group",
+                            text="➕️Add Jin Mori to your group",
                             url="t.me/{}?startgroup=true".format(context.bot.username))
                     ],
                     [
                         InlineKeyboardButton(
                             text="Support Chat ",
-                            url="https://t.me/chizurusupport"),
+                            url="https://t.me/Morijinopsupport"),
                         InlineKeyboardButton(
                             text="📍Updates ",
-                            url="https://t.me/chizuruupdates")
+                            url="https://t.me/Jin_mori_updates")
                     ],
+                    [
+                      InlineKeyboardButton(
+                          text="Join our grp
+                          url="https://t.me/nexusgroups")
+                    [,
                     [
                         InlineKeyboardButton(
                             text="help",
-                            url="https://t.me/Chizurumanagementbot?start=help")
+                            url="https://t.me/Nexus_morijinbot?start=help")
                     ]]))
 
 
 
 
     else:
-        update.effective_message.reply_text("Heya, my name is mizuhara")
+        update.effective_message.reply_text("Heya, my name is Jin mori")
 
 
 

@@ -18,7 +18,7 @@ from Mizuhararobot import (
     TIGERS,
     WOLVES,
 )
-from Mizuhararobot.helpers.admincheck import admin_check
+from Mizuhararobot.utils.admincheck import admin_check
 from Mizuhararobot import pbot
 
 

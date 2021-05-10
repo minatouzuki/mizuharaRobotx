@@ -38,33 +38,32 @@ async def ban_usr(client, message):
         chat_id = message.chat.id
         can_ban = await admin_check(message)
 
-    if is_user_ban_protected(chat_id, user_id, member) and user not in DEV_USERS:
-        if user_id == OWNER_ID:
-            message.reply_text("Trying to put me against a God level disaster huh?")
+        if user_id in OWNER_ID:
+            await message.reply_text("Trying to put me against a God level disaster huh?")
             return log_message
         elif user_id in DEV_USERS:
-            message.reply_text("I can't act against our own.")
+            await .reply_text("I can't act against our own.")
             return log_message
         elif user_id in DRAGONS:
-            message.reply_text(
+            await message.reply_text(
                 "Fighting this Dragon here will put my and peoples life in danger."
             )
             return log_message
         elif user_id in DEMONS:
-            message.reply_text(
+            await message.reply_text(
                 "Bring an order from rent association to fight a Demon disaster."
             )
             return log_message
         elif user_id in TIGERS:
-            message.reply_text(
+            await message.reply_text(
                 "Bring an order from rent association to fight a Tiger disaster."
             )
             return log_message
         elif user_id in WOLVES:
-            message.reply_text("Wolf abilities make them ban immune!")
+            await message.reply_text("Wolf abilities make them ban immune!")
             return log_message
         else:
-            message.reply_text("This user has immunity and cannot be banned.")
+            await message.reply_text("This user has immunity and cannot be banned.")
             return log_message
 
 

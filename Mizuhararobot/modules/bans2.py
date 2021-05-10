@@ -38,7 +38,7 @@ async def ban_usr(client, message):
         chat_id = message.chat.id
         can_ban = await admin_check(message)
 
-    if is_user_ban_protected(chat, user_id, member) and user not in DEV_USERS:
+    if is_user_ban_protected(chat_id, user_id, member) and user not in DEV_USERS:
         if user_id == OWNER_ID:
             message.reply_text("Trying to put me against a God level disaster huh?")
             return log_message
